@@ -1,0 +1,94 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using OnlineStoreBack_API.Data.Context;
+using OnlineStoreBack_API.Data.Models;
+using System.Security.Claims;
+using System.Text;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+#region Controllers and Swagger
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+#endregion
+
+#region Context
+
+builder.Services.AddDbContext<OnlineStoreContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("OnlineStoreDB")));
+#endregion
+
+#region ASP Identity
+
+builder.Services.AddIdentity<Customer, IdentityRole>(options =>
+{
+	options.Password.RequireNonAlphanumeric = false;
+	options.Password.RequireUppercase = false;
+	options.Password.RequireLowercase = false;
+	options.Password.RequiredLength = 5;
+	options.Lockout.MaxFailedAccessAttempts = 3;
+	options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
+}).AddEntityFrameworkStores<OnlineStoreContext>();
+#endregion
+
+#region Authentication
+
+//when you validate token use the same key and the same hashing algorithm
+builder.Services.AddAuthentication(optrions =>
+{
+	optrions.DefaultAuthenticateScheme = "default";
+	optrions.DefaultChallengeScheme = "default";//so that he dont redirect the user in case he enterd un auth rout
+})
+	.AddJwtBearer("default", options =>
+	{
+		var secretKey = builder.Configuration.GetValue<string>("SecretKey");
+		var secretKeyInBytes = Encoding.ASCII.GetBytes(secretKey);
+		var key = new SymmetricSecurityKey(secretKeyInBytes);
+		options.TokenValidationParameters = new TokenValidationParameters
+		{
+			ValidateAudience = false,
+			ValidateIssuer = false,
+			IssuerSigningKey = key
+		};
+	});
+
+#endregion
+
+#region Authorization
+// Customer , Admin
+builder.Services.AddAuthorization(options =>
+{
+	options.AddPolicy("Admin", policy =>
+	 policy.RequireClaim(ClaimTypes.Role, "Admin")
+	);
+	options.AddPolicy("Customer", policy =>
+	policy.RequireClaim(ClaimTypes.Role,"Customer")
+	);
+});
+#endregion
+
+var app = builder.Build();
+
+#region Middlewares
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+	app.UseSwagger();
+	app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthentication();//
+
+app.UseAuthorization();
+
+app.MapControllers();
+#endregion
+
+app.Run();
