@@ -1,12 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OnlineStoreBack_API.Data.Models
+namespace OnlineStoreBack_API.DTO.ModelsDTO
 {
-	public class Product
+	public class ProductDTO
 	{
-		
-		public int Id { get; set; }
 		[Required]
 		[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use English letters only please")]
 		public string EnglishName { get; set; }
@@ -29,12 +27,5 @@ namespace OnlineStoreBack_API.Data.Models
 		[Required]
 		[Range(1, 100000, ErrorMessage = "Can only be between 1 .. 100000")]
 		public float Price { get; set; }
-
-
-		public virtual Category Category { get; set; }
-		public virtual Vendor Vendor { get; set; }
-
-
-
 	}
 }

@@ -23,45 +23,7 @@ namespace OnlineStoreBack_API.Controllers
 			this.configuration = configuration;
 			this.userManager = userManager;
 		}
-		[HttpPost]
-		[Route("staticlogin")]
-		public ActionResult<string> StaticLogin(LoginDTO credentials)
-		{
-			if (credentials.UserName=="admin"&& credentials.Password=="pass")
-			{
-				//Generate Token JWT HashingAlgorethm.Claims.HashingResult +++ SecretKey 
-				//theis token should generate after Regester??
 
-				//Claims
-				var userClaims = new List<Claim>
-				{
-					new Claim(ClaimTypes.NameIdentifier, credentials.UserName),
-					new Claim(ClaimTypes.Email, $"{credentials.UserName}@gmail.com"),
-					new Claim("Nationality","Egyption"),
-				};
-				//SecretKey
-				var secretKey = configuration.GetValue<string>("SecretKey");
-				var secretKeyInBytes = Encoding.ASCII.GetBytes(secretKey);
-				var key = new SymmetricSecurityKey(secretKeyInBytes);
-				var methodUsedInGenerateToken =  new SigningCredentials(key,SecurityAlgorithms.HmacSha256Signature);
-
-				//now we have Claims and SecretKey we need to Generate Token
-
-				var JWT = new JwtSecurityToken(
-					claims: userClaims,
-					notBefore: DateTime.Now,
-					expires: DateTime.Now.AddHours(1),	
-					signingCredentials: methodUsedInGenerateToken
-					);
-
-				var tokenHandler = new JwtSecurityTokenHandler();
-				string tokenString = tokenHandler.WriteToken(JWT);
-				return Ok( tokenString );
-			}
-			return Unauthorized("Wrong Cradential");
-
-
-		}
 
 		[HttpPost]
 		[Route("regester")]
