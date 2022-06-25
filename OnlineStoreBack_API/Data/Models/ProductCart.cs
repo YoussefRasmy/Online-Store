@@ -11,7 +11,7 @@ namespace OnlineStoreBack_API.Data.Models
 		public int Quantity { get; set; }
 		public double TotalPrice { get; set; }
 
-
+		//Nav Prop
 		public virtual Product Product  { get; set; }
 		public virtual Cart Cart  { get; set; }
 	}

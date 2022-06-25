@@ -30,11 +30,13 @@ namespace OnlineStoreBack_API.Data.Models
 		[Range(1, 100000, ErrorMessage = "Can only be between 1 .. 100000")]
 		public float Price { get; set; }
 
-
+		//Nav Prop
 		public virtual Category Category { get; set; }
 		public virtual Vendor Vendor { get; set; }
+		//public virtual ICollection<Cart> Carts { get; set; } Will Creat new Table 
+		public virtual ICollection<ProductCart> ProductCarts { get; set; }
 
-
+		public virtual ICollection<ProductOrder> MyProperty { get; set; }
 
 	}
 }

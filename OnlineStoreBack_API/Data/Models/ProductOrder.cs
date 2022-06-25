@@ -13,7 +13,7 @@ namespace OnlineStoreBack_API.Data.Models
 
 
 
-
+		//Nav Prop
 		public virtual Order Order { get; set; }
 		public virtual Product Product { get; set; }
 	}

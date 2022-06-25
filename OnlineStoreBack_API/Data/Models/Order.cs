@@ -17,6 +17,8 @@
 		public _OrderState OrderState { get; set; }
 		//public Double Total_Price { get; set; }
 
+		//nav prop		
+
 
 
 	}

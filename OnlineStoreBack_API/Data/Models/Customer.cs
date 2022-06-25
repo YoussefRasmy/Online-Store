@@ -8,7 +8,14 @@ namespace OnlineStoreBack_API.Data.Models
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string Address { get; set; }
-		public virtual ICollection<CustomerMobile> CustomerMobiles { get; set; }
+		public string Mobile { get; set; }
+
+		[ForeignKey("Cart")]
+		public int CartId { get; set; }
+		// navegation prop
+
+		public virtual Cart Cart { get; set; }
+		public virtual ICollection<Order> Orders { get; set; }
 
 	}
 }
