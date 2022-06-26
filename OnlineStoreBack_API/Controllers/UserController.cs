@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
 using OnlineStoreBack_API.DTO.Authentication;
 using System.IdentityModel.Tokens.Jwt;
@@ -16,12 +17,14 @@ namespace OnlineStoreBack_API.Controllers
 	{
 		private readonly IConfiguration configuration;
 		private readonly UserManager<StoreUser> userManager;
+		private readonly OnlineStoreContext db;
 
-		public UserController(IConfiguration  configuration,UserManager<StoreUser> userManager)
+		public UserController(IConfiguration  configuration,UserManager<StoreUser> userManager, OnlineStoreContext context)
 		{
 			//to get the secret key
 			this.configuration = configuration;
 			this.userManager = userManager;
+			this.db = context;
 		}
 
 
@@ -42,10 +45,6 @@ namespace OnlineStoreBack_API.Controllers
 				};
 				var creationRes = await userManager.CreateAsync(newUser, registerDTO.Password);
 
-
-
-
-
 				if (!creationRes.Succeeded)
 				{
 					return BadRequest(creationRes.Errors);
@@ -61,7 +60,13 @@ namespace OnlineStoreBack_API.Controllers
 				};
 
 				await userManager.AddClaimsAsync(newUser, userClaims);
-				
+
+				var cart = new Cart { TotalPrice = 0, UserId = newUser.Id };//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Is that Wrong
+
+				db.Carts.Add(cart);
+				db.SaveChanges();
+				newUser.CartId = cart.Id;   //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Is that wrong
+
 
 				return Ok("done");
 			}
