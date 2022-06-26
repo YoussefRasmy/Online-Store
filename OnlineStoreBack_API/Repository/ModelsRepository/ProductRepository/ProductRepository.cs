@@ -18,5 +18,23 @@ namespace OnlineStoreBack_API.Repository
 			var Products= db.Products.OrderByDescending(x => x.EnglishName).ToList();
 			return Products;
 		}
+
+		public void DecreacInventorty(int id, int count)
+		{
+			var product = db.Products.FirstOrDefault(x => x.Id == id);
+			if (product != null)
+			{
+				product.Quantity -= count;
+			}
+		}
+		public void IncreacInventory(int id, int count)
+		{
+			var product = db.Products.FirstOrDefault(x => x.Id == id);
+			if (product != null)
+			{
+				product.Quantity += count;
+			}
+		}
+
 	} 
 }

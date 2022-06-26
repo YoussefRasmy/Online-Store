@@ -11,6 +11,9 @@ namespace OnlineStoreBack_API.Repository
 		{
 			this.db = context;
 		}
+
+	
+
 		public void Delete(int cartId, int productId)
 		{
 			var productCart = db.CartProducts.FirstOrDefault(x=>x.CartId == cartId && x.ProductId == productId);
@@ -33,6 +36,8 @@ namespace OnlineStoreBack_API.Repository
 		{
 			return db.CartProducts.FirstOrDefault(x=>x.CartId==cartId && x.ProductId == productId);
 		}
+
+		
 
 		public void Update(ProductCart cart)
 		{

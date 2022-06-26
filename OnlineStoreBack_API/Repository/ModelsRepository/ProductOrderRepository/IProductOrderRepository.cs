@@ -8,5 +8,7 @@ namespace OnlineStoreBack_API.Repository
 		ProductOrder GetById(int orderId, int productId);
 		void Delete(int orderId, int productId);
 		void Update(ProductOrder productOrder);
+		void Add(ProductOrder productOrder);
+		void AddList(List<ProductOrder> productOrderList);
 	}
 }

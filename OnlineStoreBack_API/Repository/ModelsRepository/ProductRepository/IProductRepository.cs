@@ -20,7 +20,8 @@ namespace OnlineStoreBack_API.Repository
 		#endregion
 
 		#region UPDATE
-		//public int UpdateProduct(int productId, Product product);
+		void IncreacInventory(int id, int count);
+		void DecreacInventorty(int id, int count);
 		#endregion
 
 		#region DELETE
