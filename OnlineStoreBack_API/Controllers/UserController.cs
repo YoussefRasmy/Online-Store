@@ -15,9 +15,9 @@ namespace OnlineStoreBack_API.Controllers
 	public class UserController : ControllerBase
 	{
 		private readonly IConfiguration configuration;
-		private readonly UserManager<Customer> userManager;
+		private readonly UserManager<StoreUser> userManager;
 
-		public UserController(IConfiguration  configuration,UserManager<Customer> userManager)
+		public UserController(IConfiguration  configuration,UserManager<StoreUser> userManager)
 		{
 			//to get the secret key
 			this.configuration = configuration;
@@ -31,7 +31,7 @@ namespace OnlineStoreBack_API.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var newUser = new Customer
+				var newUser = new StoreUser
 				{
 					FirstName = registerDTO.FirstName,
 					LastName = registerDTO.LastName,

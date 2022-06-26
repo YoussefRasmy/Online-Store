@@ -1,4 +1,7 @@
-﻿namespace OnlineStoreBack_API.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace OnlineStoreBack_API.Data.Models
 {
 	public enum _OrderState
 	{
@@ -15,10 +18,14 @@
 		public DateTime Order_Date { get; set; }
 		public DateTime Deliver_Date { get; set; }
 		public _OrderState OrderState { get; set; }
+		[Required]
+		[ForeignKey("User")]
+		public string UserId { get; set; }
 		//public Double Total_Price { get; set; }
 
 		//nav prop		
-
+		public virtual StoreUser User { get; set; }
+		public virtual ICollection<ProductOrder> ProductOrders { get; set; }
 
 
 	}

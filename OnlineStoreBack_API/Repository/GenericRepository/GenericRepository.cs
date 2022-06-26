@@ -1,13 +1,14 @@
-﻿using Day2Task.Models;
+﻿
 using Microsoft.EntityFrameworkCore;
 using OnlineStoreBack_API.Data.Context;
 
-namespace Day2Task.Data;
 
-public class GenericRepository<TEntity> : IGenericRepository<TEntity>
+namespace OnlineStoreBack_API.Repository;
+
+public class GenericRepository<TEntity, TID> : IGenericRepository<TEntity, TID>
 	where TEntity : class
 {
-	private readonly OnlineStoreContext _context;
+	protected readonly OnlineStoreContext _context;
 
 	public GenericRepository(OnlineStoreContext context)
 	{
@@ -19,7 +20,7 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity>
 		SaveChanges();
 	}
 
-	public void Delete(Guid id)
+	public void Delete(TID id)
 	{
 		var entityToDelete = GetById(id);
 		if (entityToDelete is not null)
@@ -34,7 +35,7 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity>
 		return _context.Set<TEntity>().ToList();
 	}
 
-	public TEntity GetById(Guid id)
+	public TEntity GetById(TID id)
 	{
 		return _context.Set<TEntity>().Find(id);
 	}

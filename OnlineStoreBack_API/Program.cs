@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
+using OnlineStoreBack_API.Repository;
 using System.Security.Claims;
 using System.Text;
 
@@ -20,11 +21,12 @@ builder.Services.AddSwaggerGen();
 #region Context
 
 builder.Services.AddDbContext<OnlineStoreContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("OnlineStoreDB")));
+builder.Services.AddHttpContextAccessor();
 #endregion
 
 #region ASP Identity
 
-builder.Services.AddIdentity<Customer, IdentityRole>(options =>
+builder.Services.AddIdentity<StoreUser, IdentityRole>(options =>
 {
 	options.Password.RequireNonAlphanumeric = false;
 	options.Password.RequireUppercase = false;
@@ -66,9 +68,25 @@ builder.Services.AddAuthorization(options =>
 	 policy.RequireClaim(ClaimTypes.Role, "Admin")
 	);
 	options.AddPolicy("Customer", policy =>
-	policy.RequireClaim(ClaimTypes.Role,"Customer")
+	policy.RequireClaim(ClaimTypes.Role, "Customer")
 	);
 });
+#endregion
+
+#region Services Regester
+builder.Services.AddScoped<UserManager<StoreUser>, UserManager<StoreUser>>();
+//builder.Services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<ICartRepository,CartRepository>();
+builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IProductOrderRepository, ProductOrderRepository>();
+builder.Services.AddScoped<IProductCartRepository, ProductCartRepository>();
+//builder.Services.AddScoped<>();
+//builder.Services.AddScoped<>();
+
+
+
 #endregion
 
 var app = builder.Build();

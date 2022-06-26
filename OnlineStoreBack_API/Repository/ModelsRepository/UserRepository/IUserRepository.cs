@@ -1,6 +1,7 @@
 ﻿namespace OnlineStoreBack_API.Repository
 {
-	public interface IOrder
+	//userManager
+	public class IUserRepository
 	{
 	}
 }
