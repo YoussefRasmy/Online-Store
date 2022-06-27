@@ -19,6 +19,9 @@ namespace OnlineStoreBack_API.Controllers
 			this.productRepository = productRepository;
 			this.db = context;
 		}
+
+		#region Read
+
 		// GET: api/<ProductController>
 		[HttpGet]
 		public ActionResult<List<Product>> Get()
@@ -45,12 +48,23 @@ namespace OnlineStoreBack_API.Controllers
 			return res;
 		}
 
+		#endregion
+
+		#region Creat
+
 		// POST api/<ProductController>
 		[HttpPost]
 		public void Post([FromBody] Product product)
 		{
-			productRepository.Add(product);
+			if (ModelState.IsValid)
+			{
+				productRepository.Add(product);
+			}
 		}
+		#endregion
+
+		#region Update
+
 
 		// PUT api/<ProductController>/5
 		[HttpPut("{id}")]
@@ -63,12 +77,15 @@ namespace OnlineStoreBack_API.Controllers
 				product.EnglishName = productEdit.EnglishName;
 				product.ArabicName = productEdit.ArabicName;
 				product.VendorId = productEdit.VendorId;
-				product.CategoryId= productEdit.CategoryId;
+				product.CategoryId = productEdit.CategoryId;
 				product.Description = productEdit.Description;
 				product.ImagePath = productEdit.ImagePath;
 				product.Quantity = productEdit.Quantity;
 			}
 		}
+		#endregion
+
+		#region Delete
 
 		// DELETE api/<ProductController>/5
 		[HttpDelete("{id}")]
@@ -80,5 +97,7 @@ namespace OnlineStoreBack_API.Controllers
 				productRepository.Delete(id);
 			}
 		}
+		#endregion
+
 	}
 }

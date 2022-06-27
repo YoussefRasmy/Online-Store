@@ -15,15 +15,18 @@ namespace OnlineStoreBack_API.Repository
 		private readonly IProductRepository productRepository;
 		private readonly IProductCartRepository productCartRepository;
 
-		public CartRepository(OnlineStoreContext context, UserManager<StoreUser> userManager, IHttpContextAccessor httpContextAccessor, ICartRepository cartRepository, IProductRepository productRepository, IProductCartRepository productCartRepository) : base(context)
+		public CartRepository(OnlineStoreContext context, UserManager<StoreUser> userManager,IOrderRepository orderRepository ,IHttpContextAccessor httpContextAccessor, ICartRepository cartRepository, IProductRepository productRepository, IProductCartRepository productCartRepository) : base(context)
 		{
 			this.db = context;
 			this.userManager = userManager;
+			OrderRepository = orderRepository;
 			this.httpContext = httpContextAccessor;
 			this.cartRepository = cartRepository;
 			this.productRepository = productRepository;
 			this.productCartRepository = productCartRepository;
 		}
+
+		public IOrderRepository OrderRepository { get; }
 
 		public void AddToCart(ProductCart productCart)
 		{
@@ -92,6 +95,19 @@ namespace OnlineStoreBack_API.Repository
 				db.SaveChanges();
 			}
 
+		}
+
+		public void TransfairToOrder(string address, DateTime deliverDate)
+		{
+			var cart = GetByCurrerntUserId();
+			var order = new Order { Address= address, UserId=cart.UserId, OrderState= _OrderState.Pending, Order_Date=DateTime.Now, Deliver_Date= deliverDate };
+			OrderRepository.Add(order);
+			List<ProductOrder> productOrders = new List<ProductOrder>();
+			foreach (var item in cart.ProductCarts)
+			{
+				productOrders.Add(new ProductOrder { OrderId=order.Id, ProductId=item.ProductId, Quantity = item.Quantity,TotalPrice = item.TotalPrice  });
+			}
+			order.ProductOrders = productOrders;
 		}
 	}
 }
