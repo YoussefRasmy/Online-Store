@@ -10,8 +10,7 @@ namespace OnlineStoreBack_API.Data.Models
 		public string Address { get; set; }
 		public string Mobile { get; set; }
 
-		[ForeignKey("Cart")]
-		public int CartId { get; set; }
+		
 		// navegation prop
 
 		public virtual Cart Cart { get; set; }

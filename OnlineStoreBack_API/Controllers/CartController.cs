@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
+using OnlineStoreBack_API.DTO.ModelsDTO;
 using OnlineStoreBack_API.Repository;
-
+using OnlineStoreBack_API.Repository.Services.User;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace OnlineStoreBack_API.Controllers
@@ -11,61 +13,88 @@ namespace OnlineStoreBack_API.Controllers
 	[ApiController]
 	public class CartController : ControllerBase
 	{
-		private readonly OnlineStoreContext db;
+		private readonly UserManager<StoreUser> userManager;
 		private readonly CartRepository cartRepository;
+		private readonly UserSevice userSevice;
 
-		public CartController(OnlineStoreContext context,CartRepository cartRepository)
+		public CartController(UserManager<StoreUser> userManager,CartRepository cartRepository,UserSevice userSevice)
 		{
-			this.db = context;
+			this.userManager = userManager;
 			this.cartRepository = cartRepository;
-		}
+			this.userSevice = userSevice;
+		} 
 
 		#region Read
 
 		// GET: api/<CartController>
 		[HttpGet]
-		public ActionResult<Cart> Get()
+		public async Task< ActionResult<Cart> > Get()
 		{
-			return cartRepository.GetByCurrerntUserId();
+			var user = await userManager.GetUserAsync(User);
+			var userId = await userManager.GetUserIdAsync(user);
+			var currentUserCart = cartRepository.GetBytUserId(userId);
+			return currentUserCart;
 		}
 
 		// GET api/<CartController>/5
-		[HttpGet("{id}")]
-		public ActionResult<Cart> Get(int id)
-		{
-			return cartRepository.GetById(id);
-		}
+		//[HttpGet("{id}")]
+		//public ActionResult<Cart> Get(int id)
+		//{
+		//	return cartRepository.GetById(id);
+		//}
 
 		#endregion
 
-		#region Creat
+		#region Add One
 
 		// POST api/<CartController>
 		[HttpPost]
-		public void Post([FromBody] string value)
+		public async void AddToCart([FromBody] ProductCartDTO productCart)//...........>>>>>>>> somthing is wrong
 		{
-			
+			var userId = await userSevice.GetUserId(User);
+			var currentUserCart = cartRepository.GetBytUserId(userId);
+			var newProductCart = new ProductCart { CartId=currentUserCart.Id, ProductId=productCart.ProductId, Quantity = productCart.Quantity};
+			cartRepository.AddToCart(newProductCart);
 		}
 
 		#endregion
 
-		#region Update
+		#region add List
 
 		// PUT api/<CartController>/5
-		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] string value)
+		[HttpPut]
+		public async void Put(List<ProductCartDTO> productCartDTOs)
 		{
+			var userId = await userSevice.GetUserId(User);
+			var currentUserCart = cartRepository.GetBytUserId(userId);
+
+			currentUserCart.ProductCarts.Clear();
+
+			productCartDTOs.ForEach(x =>
+			currentUserCart.ProductCarts.Add(new ProductCart { CartId=currentUserCart.Id, ProductId=x.ProductId, Quantity = x.Quantity})
+			);
+
 		}
 
 		#endregion
 
-		#region Delete
+		#region TransfairToOrder
 
-		// DELETE api/<CartController>/5
-		[HttpDelete("{id}")]
-		public void Delete(int id)
+		[HttpPost]
+		// POST api/<CartController>
+		[Route("cartToOrder")]
+		public async void TransfairToOrder([FromBody] string address, DateTime deliverDate)//...........>>>>>>>> somthing is wrong
 		{
+			//var user = await userManager.GetUserAsync(User);
+			//var userId = await userManager.GetUserIdAsync(user);
+
+			var userId = await userSevice.GetUserId(User);
+			var currentUserCart = cartRepository.GetBytUserId(userId);
+			 cartRepository.TransfairToOrder(address, deliverDate, currentUserCart);
+
 		}
+
 		#endregion
+
 	}
 }

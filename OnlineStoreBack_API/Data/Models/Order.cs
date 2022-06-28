@@ -18,6 +18,7 @@ namespace OnlineStoreBack_API.Data.Models
 		public DateTime Order_Date { get; set; }
 		public DateTime Deliver_Date { get; set; }
 		public _OrderState OrderState { get; set; }
+		public double TotalPrice { get; set; }
 		[Required]
 		[ForeignKey("User")]
 		public string UserId { get; set; }

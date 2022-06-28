@@ -65,7 +65,7 @@ namespace OnlineStoreBack_API.Controllers
 
 				db.Carts.Add(cart);
 				db.SaveChanges();
-				newUser.CartId = cart.Id;   //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Is that wrong
+				
 
 
 				return Ok("done");

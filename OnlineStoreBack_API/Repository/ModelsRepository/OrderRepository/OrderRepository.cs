@@ -24,14 +24,14 @@ namespace OnlineStoreBack_API.Repository
 		public IHttpContextAccessor HttpContextAccessor { get; }
 		public ICartRepository CartRepository { get; }
 
-		public async void AddProducts()
-		{
-			var UserId = HttpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-			//var user = await userManager.FindByIdAsync(UserId);
-			var cart = CartRepository.GetBytUserId(UserId);
-			
-			throw new NotImplementedException();
-		}
+		//public async void AddProducts()
+		//{
+		//	var UserId = HttpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+		//	//var user = await userManager.FindByIdAsync(UserId);
+		//	var cart = CartRepository.GetBytUserId(UserId);
+			// >>>>>>>>>>>>>>>>>>>>>>>>>Done in the cart repo
+		//	throw new NotImplementedException();
+		//}
 
 		public List<Order> GetAllByCurrentUserId()
 		{

@@ -20,6 +20,7 @@ namespace OnlineStoreBack_API.DTO.ModelsDTO
 		public int VendorId { get; set; }
 		public string Description { get; set; }
 		[Required]
+		
 		public string ImagePath { get; set; }
 		[Required]
 		[Range(1, 10000, ErrorMessage = "Can only be between 1 .. 10000")]

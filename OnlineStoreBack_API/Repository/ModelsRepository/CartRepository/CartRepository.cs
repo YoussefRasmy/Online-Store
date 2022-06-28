@@ -9,37 +9,42 @@ namespace OnlineStoreBack_API.Repository
 	public class CartRepository : GenericRepository<Cart, int>, ICartRepository
 	{
 		private readonly OnlineStoreContext db;
+		private readonly ProductOrderRepository productOrderRepository;
 		private readonly UserManager<StoreUser> userManager;
+		private readonly IOrderRepository orderRepository;
 		private readonly IHttpContextAccessor httpContext;
 		private readonly ICartRepository cartRepository;
 		private readonly IProductRepository productRepository;
 		private readonly IProductCartRepository productCartRepository;
 
-		public CartRepository(OnlineStoreContext context, UserManager<StoreUser> userManager,IOrderRepository orderRepository ,IHttpContextAccessor httpContextAccessor, ICartRepository cartRepository, IProductRepository productRepository, IProductCartRepository productCartRepository) : base(context)
+		public CartRepository(OnlineStoreContext context, ProductOrderRepository productOrderRepository,UserManager<StoreUser> userManager, IOrderRepository orderRepository, IHttpContextAccessor httpContextAccessor, ICartRepository cartRepository, IProductRepository productRepository, IProductCartRepository productCartRepository) : base(context)
 		{
 			this.db = context;
+			this.productOrderRepository = productOrderRepository;
 			this.userManager = userManager;
-			OrderRepository = orderRepository;
+			this.orderRepository = orderRepository;
 			this.httpContext = httpContextAccessor;
 			this.cartRepository = cartRepository;
 			this.productRepository = productRepository;
 			this.productCartRepository = productCartRepository;
 		}
 
-		public IOrderRepository OrderRepository { get; }
+
 
 		public void AddToCart(ProductCart productCart)
 		{
 
-			var cart = cartRepository.GetByCurrerntUserId();
+			var cart = cartRepository.GetById(productCart.CartId);
 			var product = productRepository.GetById(productCart.ProductId);
 			if (cart.ProductCarts.Contains(productCart))
 			{
-				if (product.Quantity >= 1 && product.Quantity > productCart.Quantity)
+				if (product.Quantity >= 1 && product.Quantity >= productCart.Quantity)
 				{
-					//var cartItem = db.CartProducts.FirstOrDefault(x => x.ProductId == productCart.ProductId&&x.CartId==cart.Id);
-					productCart.Quantity++;
-					productCart.TotalPrice += db.Products.FirstOrDefault(x => x.Id == productCart.ProductId).Price;
+					//productCart.Quantity++;
+					//productCart.TotalPrice += db.Products.FirstOrDefault(x => x.Id == productCart.ProductId).Price;
+					var TheProductCart = db.CartProducts.FirstOrDefault(x => x.ProductId == productCart.ProductId && x.CartId == productCart.CartId);
+					TheProductCart.Quantity = productCart.Quantity;
+
 				}
 			}
 			else
@@ -97,17 +102,27 @@ namespace OnlineStoreBack_API.Repository
 
 		}
 
-		public void TransfairToOrder(string address, DateTime deliverDate)
+		public void TransfairToOrder(string address, DateTime deliverDate, Cart cart)
 		{
-			var cart = GetByCurrerntUserId();
-			var order = new Order { Address= address, UserId=cart.UserId, OrderState= _OrderState.Pending, Order_Date=DateTime.Now, Deliver_Date= deliverDate };
-			OrderRepository.Add(order);
+			//var cart = GetByCurrerntUserId();
+			var order = new Order { Address = address, UserId = cart.UserId, OrderState = _OrderState.Pending, Order_Date = DateTime.Now, Deliver_Date = deliverDate };
+
+			orderRepository.Add(order);
+
 			List<ProductOrder> productOrders = new List<ProductOrder>();
 			foreach (var item in cart.ProductCarts)
 			{
-				productOrders.Add(new ProductOrder { OrderId=order.Id, ProductId=item.ProductId, Quantity = item.Quantity,TotalPrice = item.TotalPrice  });
+				productOrders.Add(new ProductOrder { OrderId = order.Id, ProductId = item.ProductId, Quantity = item.Quantity, TotalPrice = item.TotalPrice });
+				///---------------------------------------
+
 			}
-			order.ProductOrders = productOrders;
+			//order.ProductOrders = productOrders;
+			productOrderRepository.AddList(productOrders);// to let the inventory know
+			order.TotalPrice = 0;
+			foreach (var item in productOrders)
+			{
+				order.TotalPrice += item.TotalPrice;
+			}
 		}
 	}
 }

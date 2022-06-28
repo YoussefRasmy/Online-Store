@@ -12,12 +12,11 @@ namespace OnlineStoreBack_API.Controllers
 	public class ProductController : ControllerBase
 	{
 		private readonly IProductRepository productRepository;
-		private readonly OnlineStoreContext db;
 
-		public ProductController(IProductRepository productRepository, OnlineStoreContext context)
+		public ProductController(IProductRepository productRepository )
 		{
 			this.productRepository = productRepository;
-			this.db = context;
+			
 		}
 
 		#region Read
@@ -70,7 +69,7 @@ namespace OnlineStoreBack_API.Controllers
 		[HttpPut("{id}")]
 		public void Put(int id, [FromBody] Product productEdit)
 		{
-			var product = db.Products.Find(id);
+			var product = productRepository.GetById(id);
 			if (product != null)
 			{
 				product.Price = productEdit.Price;
@@ -91,7 +90,7 @@ namespace OnlineStoreBack_API.Controllers
 		[HttpDelete("{id}")]
 		public void Delete(int id)
 		{
-			var product = db.Products.Find(id);
+			var product = productRepository.GetById(id);
 			if (product != null)
 			{
 				productRepository.Delete(id);

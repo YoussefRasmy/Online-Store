@@ -44,7 +44,12 @@ C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\run
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\obj\Debug\net6.0\OnlineStoreBack_API.csproj.AssemblyReference.cache
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\obj\Debug\net6.0\OnlineStoreBack_API.GeneratedMSBuildEditorConfig.editorconfig
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\obj\Debug\net6.0\OnlineStoreBack_API.AssemblyInfoInputs.cache
@@ -61,8 +66,3 @@ C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\obj\Debug\net6.0\ref
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\obj\Debug\net6.0\OnlineStoreBack_API.pdb
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\obj\Debug\net6.0\OnlineStoreBack_API.genruntimeconfig.cache
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\obj\Debug\net6.0\ref\OnlineStoreBack_API.dll
-C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll

@@ -56,7 +56,10 @@ namespace OnlineStoreBack_API.Controllers
 		[HttpPut("{id}")]
 		public void Put(int id, [FromBody] Category category)
 		{
-			categoryRepository.Update(category);
+			
+			var cat = categoryRepository.GetById(id);	
+			cat.Name = category.Name;
+			cat.ParentCategoryId = category.ParentCategoryId;
 		}
 
 		// DELETE api/<CategoryController>/5

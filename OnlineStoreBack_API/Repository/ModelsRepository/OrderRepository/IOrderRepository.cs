@@ -6,6 +6,6 @@ namespace OnlineStoreBack_API.Repository
 	{
 		List<Order> GetAllByCurrentUserId();
 		List<Order> GetAllByUserId(string userId);
-		void AddProducts();
+		//void AddProducts();
 	}
 }
