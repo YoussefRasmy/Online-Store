@@ -6,9 +6,9 @@ namespace OnlineStoreBack_API.Repository
 	public class ProductOrderRepository : IProductOrderRepository
 	{
 		private readonly OnlineStoreContext db;
-		private readonly ProductRepository productRepository;
+		private readonly IProductRepository productRepository;
 
-		public ProductOrderRepository(OnlineStoreContext context,ProductRepository productRepository)
+		public ProductOrderRepository(OnlineStoreContext context,IProductRepository productRepository)
 		{
 			this.db = context;
 			this.productRepository = productRepository;

@@ -39,8 +39,13 @@ namespace OnlineStoreBack_API.Controllers
 		{
 			return categoryRepository.GetById(id);
 		}
-
-		[HttpGet("{name:string}")]
+		// GET api/<CategoryController>/Name
+		[HttpGet]
+		[Route("Name")]
+		public ActionResult<List<Category>> GetByName(string name)
+		{
+			return categoryRepository.GetByName(name);
+		}
 
 		#endregion
 

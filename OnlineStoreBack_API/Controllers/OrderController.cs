@@ -24,6 +24,7 @@ namespace OnlineStoreBack_API.Controllers
 			this.userSevice = userSevice;
 			this.productRepository = productRepository;
 		}
+		[HttpGet]
 		public async Task<ActionResult<List<OrderDTO>>> GetUserOrders()
 		{
 			int orderNum = 1;

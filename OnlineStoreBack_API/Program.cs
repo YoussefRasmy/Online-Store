@@ -75,16 +75,12 @@ builder.Services.AddAuthorization(options =>
 
 #region Services Regester
 builder.Services.AddScoped<UserManager<StoreUser>, UserManager<StoreUser>>();
-//builder.Services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
-builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IProductOrderRepository, ProductOrderRepository>();
-builder.Services.AddScoped<IProductCartRepository, ProductCartRepository>();
-//builder.Services.AddScoped<>();
-//builder.Services.AddScoped<>();
-
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<IProductCartRepository,ProductCartRepository>();
 
 
 #endregion

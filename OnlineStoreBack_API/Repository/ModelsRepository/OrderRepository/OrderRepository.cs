@@ -9,36 +9,34 @@ namespace OnlineStoreBack_API.Repository
 	public class OrderRepository : GenericRepository<Order, int>, IOrderRepository
 	{
 		private readonly OnlineStoreContext db;
-		private readonly UserManager<StoreUser> userManager;
-		private readonly IProductOrderRepository productOrderRepository;
 
-		public OrderRepository(OnlineStoreContext context, IHttpContextAccessor httpContextAccessor,UserManager<StoreUser> userManager , ICartRepository cartRepository,IProductOrderRepository productOrderRepository) : base(context)
+
+		public OrderRepository(OnlineStoreContext context) : base(context)
 		{
 			this.db = context;
-			HttpContextAccessor = httpContextAccessor;
-			this.userManager = userManager;
-			CartRepository = cartRepository;
-			this.productOrderRepository = productOrderRepository;
+		
+		
+			
 		}
 
-		public IHttpContextAccessor HttpContextAccessor { get; }
-		public ICartRepository CartRepository { get; }
+		#region commented
 
 		//public async void AddProducts()
 		//{
 		//	var UserId = HttpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 		//	//var user = await userManager.FindByIdAsync(UserId);
 		//	var cart = CartRepository.GetBytUserId(UserId);
-			// >>>>>>>>>>>>>>>>>>>>>>>>>Done in the cart repo
+		// >>>>>>>>>>>>>>>>>>>>>>>>>Done in the cart repo
 		//	throw new NotImplementedException();
 		//}
 
-		public List<Order> GetAllByCurrentUserId()
-		{
-			var UserId = HttpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-			var orders = db.Orders.Include(x=>x.ProductOrders).Where(x=>x.UserId==UserId).ToList();
-			return orders;
-		}
+		//public List<Order> GetAllByCurrentUserId()
+		//{
+		//	var UserId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+		//	var orders = db.Orders.Include(x=>x.ProductOrders).Where(x=>x.UserId==UserId).ToList();
+		//	return orders;
+		//} 
+		#endregion
 
 		public List<Order> GetAllByUserId(string userId)
 		{

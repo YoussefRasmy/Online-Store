@@ -9,22 +9,22 @@ namespace OnlineStoreBack_API.Repository
 	public class CartRepository : GenericRepository<Cart, int>, ICartRepository
 	{
 		private readonly OnlineStoreContext db;
-		private readonly ProductOrderRepository productOrderRepository;
+		private readonly IProductOrderRepository productOrderRepository;
 		private readonly UserManager<StoreUser> userManager;
 		private readonly IOrderRepository orderRepository;
 		private readonly IHttpContextAccessor httpContext;
-		private readonly ICartRepository cartRepository;
+		
 		private readonly IProductRepository productRepository;
 		private readonly IProductCartRepository productCartRepository;
 
-		public CartRepository(OnlineStoreContext context, ProductOrderRepository productOrderRepository,UserManager<StoreUser> userManager, IOrderRepository orderRepository, IHttpContextAccessor httpContextAccessor, ICartRepository cartRepository, IProductRepository productRepository, IProductCartRepository productCartRepository) : base(context)
+		public CartRepository(OnlineStoreContext context, IProductOrderRepository productOrderRepository,UserManager<StoreUser> userManager, IOrderRepository orderRepository, IHttpContextAccessor httpContextAccessor, IProductRepository productRepository, IProductCartRepository productCartRepository) : base(context)
 		{
 			this.db = context;
 			this.productOrderRepository = productOrderRepository;
 			this.userManager = userManager;
 			this.orderRepository = orderRepository;
 			this.httpContext = httpContextAccessor;
-			this.cartRepository = cartRepository;
+			
 			this.productRepository = productRepository;
 			this.productCartRepository = productCartRepository;
 		}
@@ -34,7 +34,7 @@ namespace OnlineStoreBack_API.Repository
 		public void AddToCart(ProductCart productCart)
 		{
 
-			var cart = cartRepository.GetById(productCart.CartId);
+			var cart = GetById(productCart.CartId);
 			var product = productRepository.GetById(productCart.ProductId);
 			if (cart.ProductCarts.Contains(productCart))
 			{

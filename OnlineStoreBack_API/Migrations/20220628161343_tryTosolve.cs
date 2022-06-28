@@ -4,7 +4,7 @@
 
 namespace OnlineStoreBack_API.Migrations
 {
-    public partial class UserCart3 : Migration
+    public partial class tryTosolve : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,6 +24,13 @@ namespace OnlineStoreBack_API.Migrations
                 name: "CartId",
                 table: "AspNetUsers");
 
+            migrationBuilder.AddColumn<double>(
+                name: "TotalPrice",
+                table: "Orders",
+                type: "float",
+                nullable: false,
+                defaultValue: 0.0);
+
             migrationBuilder.CreateIndex(
                 name: "IX_Carts_UserId",
                 table: "Carts",
@@ -37,6 +44,10 @@ namespace OnlineStoreBack_API.Migrations
             migrationBuilder.DropIndex(
                 name: "IX_Carts_UserId",
                 table: "Carts");
+
+            migrationBuilder.DropColumn(
+                name: "TotalPrice",
+                table: "Orders");
 
             migrationBuilder.AddColumn<int>(
                 name: "CartId",
@@ -61,7 +72,7 @@ namespace OnlineStoreBack_API.Migrations
                 column: "CartId",
                 principalTable: "Carts",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.SetNull);
+                onDelete: ReferentialAction.NoAction);
         }
     }
 }

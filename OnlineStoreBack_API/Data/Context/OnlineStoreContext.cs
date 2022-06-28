@@ -21,7 +21,7 @@ namespace OnlineStoreBack_API.Data.Context
 		public DbSet<Vendor> Vendors { get; set; }
 
 
-		public DbSet<StoreUser> Users { get; set; } = null!;
+		public DbSet<StoreUser> Users { get; set; } 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			builder.Entity<ProductCart>().HasKey(x => new { x.ProductId, x.CartId });

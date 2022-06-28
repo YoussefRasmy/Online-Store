@@ -12,8 +12,8 @@ using OnlineStoreBack_API.Data.Context;
 namespace OnlineStoreBack_API.Migrations
 {
     [DbContext(typeof(OnlineStoreContext))]
-    [Migration("20220627225936_UserCart3")]
-    partial class UserCart3
+    [Migration("20220628161343_tryTosolve")]
+    partial class tryTosolve
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -220,6 +220,9 @@ namespace OnlineStoreBack_API.Migrations
 
                     b.Property<DateTime>("Order_Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
 
                     b.Property<string>("UserId")
                         .IsRequired()

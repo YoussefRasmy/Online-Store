@@ -32,7 +32,7 @@ namespace OnlineStoreBack_API.Controllers
 		}
 
 		//// GET: api/<ProductController>/ByName
-		[HttpGet("{enName:string}")]
+		[HttpGet]
 		[Route("byname")]
 		public ActionResult<List<Product>> GetbyName(string enName)
 		{
