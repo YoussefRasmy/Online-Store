@@ -31,12 +31,12 @@ namespace OnlineStoreBack_API.Repository
 
 
 
-		public void AddToCart(ProductCart productCart)
+		public int AddToCart(ProductCart productCart)
 		{
 
 			var cart = GetById(productCart.CartId);
 			var product = productRepository.GetById(productCart.ProductId);
-			if (cart.ProductCarts.Contains(productCart))
+			if (db.CartProducts.Contains(productCart))
 			{
 				if (product.Quantity >= 1 && product.Quantity >= productCart.Quantity)
 				{
@@ -44,18 +44,40 @@ namespace OnlineStoreBack_API.Repository
 					//productCart.TotalPrice += db.Products.FirstOrDefault(x => x.Id == productCart.ProductId).Price;
 					var TheProductCart = db.CartProducts.FirstOrDefault(x => x.ProductId == productCart.ProductId && x.CartId == productCart.CartId);
 					TheProductCart.Quantity = productCart.Quantity;
-
+					productCartRepository.CalculatePrice(TheProductCart);
+					
 				}
 			}
 			else
 			{
-				if (product.Quantity >= 1)
+				if (product.Quantity >= productCart.Quantity)
 				{
 					db.CartProducts.Add(productCart);
+
+					productRepository.DecreacInventorty(productCart.ProductId, productCart.Quantity);
+					productCartRepository.CalculatePrice(productCart);
+					
 				}
+				
 			}
 			//what if something happend with the database what should i do>>>>>>>>>>>>>>>>>>>>>>Important 
-			db.SaveChanges();
+			CalculateCart(cart);
+			var x = db.SaveChanges();
+			return x;
+
+		}
+
+		public void CalculateCart(Cart cart)
+		{
+
+			var cartProducts = db.CartProducts.Where(x => x.CartId == cart.Id).ToList();
+			double price = 0;
+			foreach (var cartProduct in cartProducts)
+			{
+				price += cartProduct.TotalPrice;
+			}
+			cart.TotalPrice = price;
+
 
 		}
 
@@ -73,11 +95,12 @@ namespace OnlineStoreBack_API.Repository
 			var cart = db.Carts.Include(x => x.ProductCarts).FirstOrDefault(x => x.UserId == userId);
 			if (cart.ProductCarts != null)
 			{
-				cart.TotalPrice = 0;
-				foreach (var item in cart.ProductCarts)
-				{
-					cart.TotalPrice += item.TotalPrice;
-				}
+				//cart.TotalPrice = 0;
+				//foreach (var item in cart.ProductCarts)
+				//{
+				//	cart.TotalPrice += item.TotalPrice;
+				//}
+				CalculateCart(cart);
 			}
 			return cart;
 		}
@@ -123,6 +146,7 @@ namespace OnlineStoreBack_API.Repository
 			{
 				order.TotalPrice += item.TotalPrice;
 			}
+			cart.TotalPrice = 0;
 		}
 	}
 }

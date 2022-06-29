@@ -4,11 +4,11 @@ using System.Security.Claims;
 
 namespace OnlineStoreBack_API.Repository.Services.User
 {
-	public class UserSevice
+	public class UserService : IUserService
 	{
 		private readonly UserManager<StoreUser> userManager;
 
-		public UserSevice(UserManager<StoreUser> userManager)
+		public UserService(UserManager<StoreUser> userManager)
 		{
 			this.userManager = userManager;
 		}

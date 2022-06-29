@@ -7,11 +7,11 @@ namespace OnlineStoreBack_API.Repository
 		Cart GetByCurrerntUserId();
 		Cart GetBytUserId(string userId);
 
-		void AddToCart (ProductCart productCart);
+		int AddToCart (ProductCart productCart);
 
 		void suptrackFromCart(ProductCart productCart);
 		void TransfairToOrder(string address, DateTime deliverDate,Cart cart);
-
+		void CalculateCart(Cart cart);
 
 	}
 }

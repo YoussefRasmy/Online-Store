@@ -1,0 +1,5 @@
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\migration\obj\Debug\net6.0\migration.csproj.AssemblyReference.cache
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\migration\obj\Debug\net6.0\migration.GeneratedMSBuildEditorConfig.editorconfig
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\migration\obj\Debug\net6.0\migration.AssemblyInfoInputs.cache
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\migration\obj\Debug\net6.0\migration.AssemblyInfo.cs
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\migration\obj\Debug\net6.0\migration.csproj.CoreCompileInputs.cache

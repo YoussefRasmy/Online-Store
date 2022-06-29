@@ -14,10 +14,10 @@ namespace OnlineStoreBack_API.Controllers
 	{
 		private readonly UserManager<StoreUser> userManager;
 		private readonly OrderRepository orderRepository;
-		private readonly UserSevice userSevice;
+		private readonly UserService userSevice;
 		private readonly ProductRepository productRepository;
 
-		public OrderController(UserManager<StoreUser> userManager, OrderRepository orderRepository, UserSevice userSevice, ProductRepository productRepository)
+		public OrderController(UserManager<StoreUser> userManager, OrderRepository orderRepository, UserService userSevice, ProductRepository productRepository)
 		{
 			this.userManager = userManager;
 			this.orderRepository = orderRepository;

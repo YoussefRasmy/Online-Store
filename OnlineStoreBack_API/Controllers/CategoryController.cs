@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
+using OnlineStoreBack_API.DTO.ModelsDTO;
 using OnlineStoreBack_API.Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,15 +12,14 @@ namespace OnlineStoreBack_API.Controllers
 	[ApiController]
 	public class CategoryController : ControllerBase
 	{
-		private readonly OnlineStoreContext db;
-		private readonly CategoryRepository categoryRepository;
-		private readonly IHttpContextAccessor httpContextAccessor;
+		
+		private readonly ICategoryRepository categoryRepository;
+		
 
-		public CategoryController(OnlineStoreContext context, CategoryRepository categoryRepository, IHttpContextAccessor httpContextAccessor)
+		public CategoryController( ICategoryRepository categoryRepository)
 		{
-			this.db = context;
+			
 			this.categoryRepository = categoryRepository;
-			this.httpContextAccessor = httpContextAccessor;
 		}
 
 
@@ -27,9 +27,15 @@ namespace OnlineStoreBack_API.Controllers
 		#region Read
 		// GET: api/<CategoryController>
 		[HttpGet]
-		public ActionResult<List<Category>> Get()
+		public ActionResult<List<CategoryReadDTO>> Get()
 		{
-			return categoryRepository.GetAll();
+			var categores = categoryRepository.GetSupAndParentOnly();
+			List<CategoryReadDTO> list = new List<CategoryReadDTO>();
+			foreach (var item in categores)
+			{
+				list.Add(new CategoryReadDTO { Name = item.Name });
+			}
+			return list;
 		}
 
 		// GET api/<CategoryController>/5
@@ -51,8 +57,9 @@ namespace OnlineStoreBack_API.Controllers
 
 		// POST api/<CategoryController>
 		[HttpPost]
-		public void Post([FromBody] Category category)
+		public void Post([FromBody] CategoryWriteDTO categoryDTO)
 		{
+			var category = new Category { Name= categoryDTO.Name, ParentCategoryId = categoryDTO?.ParentCategoryId };
 			categoryRepository.Add(category);
 
 		}

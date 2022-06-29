@@ -8,7 +8,10 @@ namespace OnlineStoreBack_API.Repository
 		ProductCart GetById (int cartId,int productId);
 		void Delete(int cartId, int productId);
 		void Update(ProductCart cart);
-		
+		void CalculatePrice (ProductCart cart);
+		void ClearCart(int cartId);
 
+
+		
 	}
 }
