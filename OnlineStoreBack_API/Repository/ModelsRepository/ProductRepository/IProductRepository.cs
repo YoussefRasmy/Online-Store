@@ -15,8 +15,8 @@ namespace OnlineStoreBack_API.Repository
 		//public List<Product> GetAllProducts();
 		//Get by Name sorting by Product English name and grouping by Product Category
 		public List<Product> GetAllSortByEnName(string EnglishName);
-		//Get by Id
-		//public Product GetProductByID(int ProductId);
+		//Get by CategoryId
+		public List<Product> GetProductByCategoryId(int Category);
 		#endregion
 
 		#region UPDATE

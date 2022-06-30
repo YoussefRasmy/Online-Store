@@ -11,6 +11,24 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+#region Cors
+
+var Policy = "Hamaada";
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy(Policy, builder =>
+	{
+		builder.AllowAnyOrigin();
+		builder.AllowAnyMethod();
+		builder.AllowAnyHeader();
+
+	});
+});
+builder.Services.AddOptions();
+
+#endregion
+
 // Add services to the container.
 #region Controllers and Swagger
 
@@ -85,6 +103,7 @@ builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<IProductCartRepository,ProductCartRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IVendorRepository, VendorRepository>();
 
 #endregion
 
@@ -100,6 +119,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(Policy);
 
 app.UseAuthentication();//
 

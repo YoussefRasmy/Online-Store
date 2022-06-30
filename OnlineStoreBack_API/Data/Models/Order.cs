@@ -10,9 +10,16 @@ namespace OnlineStoreBack_API.Data.Models
 		OnItsWay,
 		Delivered
 	}
+
+	public enum PaymentMethod
+	{
+		Visa,
+		OnDeliver
+	}
 	public class Order
 	{
 		public int Id { get; set; }
+		public PaymentMethod PaymentMethod { get; set; }
 		public Double shipping_Price { get; set; }
 		public string Address { get; set; }
 		public DateTime Order_Date { get; set; }

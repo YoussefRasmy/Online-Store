@@ -34,7 +34,7 @@ namespace OnlineStoreBack_API.Controllers
 
 			foreach (var order in orders)
 			{
-				var newOrder = new OrderDTO { DeliveryAddress = order.Address, OrderNum = orderNum++, TotalPrice = order.TotalPrice };
+				var newOrder = new OrderDTO { DeliveryAddress = order.Address, OrderNum = orderNum++, TotalPrice = order.TotalPrice, _PaymentMethod = order.PaymentMethod };
 
 				foreach (var item in order.ProductOrders)
 				{

@@ -36,7 +36,7 @@ namespace OnlineStoreBack_API.Data.Models
 		//public virtual ICollection<Cart> Carts { get; set; } Will Creat new Table 
 		public virtual ICollection<ProductCart> ProductCarts { get; set; }
 
-		public virtual ICollection<ProductOrder> MyProperty { get; set; }
+		public virtual ICollection<ProductOrder> ProductOrder { get; set; }
 
 	}
 }

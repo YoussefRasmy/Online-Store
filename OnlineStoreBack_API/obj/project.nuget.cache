@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wgUmHLXgL4kVS2xbM+6G51FpmHkeMpeS0mf2lUxpe8wu6z2ln/XWWqu0A+mt1cUR/lnt6pZVheU/+Hy05TVn/A==",
+  "dgSpecHash": "+yCw3i6Y4WSdSFUwj/phKOtqzDcIwHo6N9Zb1vYq13aI5yx3Pc/sasfLHe1NxJEH9bgfa2Kyieg9UiG7ZC1vcw==",
   "success": true,
   "projectFilePath": "C:\\JOE\\LINK_TASK\\1st-TRY\\OnlineStoreSLN\\OnlineStoreBack_API\\OnlineStoreBack_API.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.6\\microsoft.aspnetcore.authentication.jwtbearer.6.0.6.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.6\\microsoft.aspnetcore.cryptography.internal.6.0.6.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.6\\microsoft.aspnetcore.cryptography.keyderivation.6.0.6.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.2.0\\microsoft.aspnetcore.dataprotection.2.2.0.nupkg.sha512",

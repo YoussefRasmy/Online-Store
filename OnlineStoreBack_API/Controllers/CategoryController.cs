@@ -33,7 +33,7 @@ namespace OnlineStoreBack_API.Controllers
 			List<CategoryReadDTO> list = new List<CategoryReadDTO>();
 			foreach (var item in categores)
 			{
-				list.Add(new CategoryReadDTO { Name = item.Name });
+				list.Add(new CategoryReadDTO { Name = item.Name, Id = item.Id });
 			}
 			return list;
 		}
