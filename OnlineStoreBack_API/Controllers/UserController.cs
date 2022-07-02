@@ -19,7 +19,7 @@ namespace OnlineStoreBack_API.Controllers
 		private readonly UserManager<StoreUser> userManager;
 		private readonly OnlineStoreContext db;
 
-		public UserController(IConfiguration  configuration,UserManager<StoreUser> userManager, OnlineStoreContext context)
+		public UserController(IConfiguration configuration, UserManager<StoreUser> userManager, OnlineStoreContext context)
 		{
 			//to get the secret key
 			this.configuration = configuration;
@@ -27,10 +27,10 @@ namespace OnlineStoreBack_API.Controllers
 			this.db = context;
 		}
 
-
+		//Customer
 		[HttpPost]
 		[Route("regester")]
-		public async Task<ActionResult<string>>Regester(RegisterDTO registerDTO)
+		public async Task<ActionResult<string>> Regester(RegisterDTO registerDTO)
 		{
 			if (ModelState.IsValid)
 			{
@@ -40,8 +40,7 @@ namespace OnlineStoreBack_API.Controllers
 					LastName = registerDTO.LastName,
 					Email = registerDTO.Email,
 					Address = registerDTO.Address,
-					UserName = registerDTO.Username
-
+					UserName = registerDTO.Username,
 				};
 				var creationRes = await userManager.CreateAsync(newUser, registerDTO.Password);
 
@@ -56,7 +55,7 @@ namespace OnlineStoreBack_API.Controllers
 				{
 					new Claim(ClaimTypes.NameIdentifier, newUser.UserName),
 					new Claim(ClaimTypes.Email, newUser.Email),
-					new Claim(ClaimTypes.Role,registerDTO.Title)//customer/Admin
+					new Claim(ClaimTypes.Role,"Customer")//Customer/Admin
 				};
 
 				await userManager.AddClaimsAsync(newUser, userClaims);
@@ -65,7 +64,7 @@ namespace OnlineStoreBack_API.Controllers
 
 				db.Carts.Add(cart);
 				db.SaveChanges();
-				
+
 
 
 				return Ok("done");
@@ -73,10 +72,10 @@ namespace OnlineStoreBack_API.Controllers
 			return BadRequest(ModelState.ErrorCount);
 
 		}
-	
+
 		[HttpPost]
 		[Route("login")]
-		public async Task<ActionResult<TokenDTO>>Login(LoginDTO credentials)
+		public async Task<ActionResult<TokenDTO>> Login(LoginDTO credentials)
 		{
 			var user = await userManager.FindByNameAsync(credentials.UserName);
 			if (user == null)

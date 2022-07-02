@@ -16,6 +16,5 @@ namespace OnlineStoreBack_API.DTO.Authentication
 		public string FirstName { get; init; }
 		[Required]
 		public string LastName { get; init; }
-		public string Title { get; init; }
 	}
 }

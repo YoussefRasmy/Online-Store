@@ -15,6 +15,12 @@ namespace OnlineStoreBack_API.Repository
 			this.productRepository = productRepository;
 		}
 
+		public void AddProductCart(ProductCart productCart)
+		{
+			db.CartProducts.Add(productCart);
+			db.SaveChanges();
+		}
+
 		public void CalculatePrice(ProductCart cart)
 		{
 			var product = productRepository.GetById(cart.ProductId);
@@ -58,7 +64,7 @@ namespace OnlineStoreBack_API.Repository
 
 		public void Update(ProductCart cart)
 		{
-			throw new NotImplementedException();
+			
 		}
 	}
 }

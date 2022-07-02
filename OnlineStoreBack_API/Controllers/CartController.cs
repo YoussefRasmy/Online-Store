@@ -16,7 +16,7 @@ namespace OnlineStoreBack_API.Controllers
 	[ApiController]
 	public class CartController : ControllerBase
 	{
-		private readonly ProductRepository productRepository;
+		private readonly IProductRepository productRepository;
 		private readonly IProductToDTO productToDTO;
 		private readonly UserManager<StoreUser> userManager;
 		private readonly ICartService cartService;
@@ -24,7 +24,7 @@ namespace OnlineStoreBack_API.Controllers
 		private readonly IUserService userSevice;
 		private readonly IProductCartRepository productCartRepository;
 
-		public CartController(ProductRepository productRepository, IProductToDTO productToDTO, UserManager<StoreUser> userManager, ICartService cartService, ICartRepository cartRepository, IUserService userSevice, IProductCartRepository productCartRepository)
+		public CartController(IProductRepository productRepository, IProductToDTO productToDTO, UserManager<StoreUser> userManager, ICartService cartService, ICartRepository cartRepository, IUserService userSevice, IProductCartRepository productCartRepository)
 		{
 			this.productRepository = productRepository;
 			this.productToDTO = productToDTO;
@@ -45,10 +45,10 @@ namespace OnlineStoreBack_API.Controllers
 			var userId = await userManager.GetUserIdAsync(user);
 			var currentUserCart = cartRepository.GetBytUserId(userId);
 			List<ProductCartDTOOutput> products = new List<ProductCartDTOOutput>();
-			
+
 			var cartProducts = productCartRepository.GetAllByCartId(currentUserCart.Id);
 
-			
+
 			foreach (var item in cartProducts)
 			{
 				products.Add(new ProductCartDTOOutput
@@ -57,10 +57,10 @@ namespace OnlineStoreBack_API.Controllers
 					_Product = productToDTO.changeToOneDTO(productRepository.GetById(item.ProductId))
 				});
 			}
-			
+
 
 			//var cartProducts
-			var cartReadDTO = new cartReadDTO { Id = currentUserCart.Id, UserId = userId , Products= products};
+			var cartReadDTO = new cartReadDTO { Id = currentUserCart.Id, UserId = userId, Products = products };
 
 
 			return cartReadDTO;
@@ -81,8 +81,8 @@ namespace OnlineStoreBack_API.Controllers
 		[HttpPost]
 		public async Task<IActionResult> AddToCart([FromBody] ProductCartDTOInput productCart)//.....,string userid......>>>>>>>> somthing is wrong
 		{
-			var userId = await userSevice.GetUserId(User);
-			var currentUserCart = cartRepository.GetBytUserId(userId);
+			//var userId = await userSevice.GetUserId(User);0006da07-2451-4a69-94f2-2acce36a8278
+			var currentUserCart = cartRepository.GetBytUserId("0006da07-2451-4a69-94f2-2acce36a8278");
 			var newProductCart = new ProductCart { CartId = currentUserCart.Id, ProductId = productCart.ProductId, Quantity = productCart.Quantity };
 			var res = cartRepository.AddToCart(newProductCart);//// first time it givs me 2 then the second 1 then 0 so what is going on ??
 			if (res == 0)/////////////////////////////////////////>>>>>>>>>>>>>>>>>>>>> 
@@ -98,20 +98,24 @@ namespace OnlineStoreBack_API.Controllers
 
 		// PUT api/<CartController>/5
 		[HttpPut]
-		public async void Put(List<ProductCartDTOInput> productCartDTOs)
+		public IActionResult Put(List<ProductCartDTOInput> productCartDTOs)
 		{
-			var userId = await userSevice.GetUserId(User);
-			var currentUserCart = cartRepository.GetBytUserId(userId);
 
-			currentUserCart.ProductCarts.Clear();
+
+			//var userId = await userSevice.GetUserId(User);0006da07-2451-4a69-94f2-2acce36a8278
+			var currentUserCart = cartRepository.GetBytUserId("0006da07-2451-4a69-94f2-2acce36a8278");
+
+			productCartRepository.ClearCart(currentUserCart.Id);
 
 			productCartDTOs.ForEach(x =>
 				{
 
-					currentUserCart.ProductCarts.Add(new ProductCart { CartId = currentUserCart.Id, ProductId = x.ProductId, Quantity = x.Quantity });
+					productCartRepository.AddProductCart(new ProductCart { CartId = currentUserCart.Id, ProductId = x.ProductId, Quantity = x.Quantity });
 
 				}
-			);
+				);
+			return Ok();
+
 
 		}
 
@@ -142,7 +146,7 @@ namespace OnlineStoreBack_API.Controllers
 		// GET: api/<CartController>
 		[HttpDelete]
 		[Route("DeleteOne")]
-		public  IActionResult DeleteOne(int productId)
+		public IActionResult DeleteOne(int productId)
 		{
 			//var user = await userManager.GetUserAsync(User);
 			//var userId = await userManager.GetUserIdAsync(user);

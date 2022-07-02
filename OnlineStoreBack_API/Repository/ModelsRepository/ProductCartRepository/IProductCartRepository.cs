@@ -10,6 +10,7 @@ namespace OnlineStoreBack_API.Repository
 		void Update(ProductCart cart);
 		void CalculatePrice (ProductCart cart);
 		void ClearCart(int cartId);
+		void AddProductCart(ProductCart productCart);
 
 
 		
