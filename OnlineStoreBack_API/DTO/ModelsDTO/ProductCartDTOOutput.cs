@@ -1,8 +1,8 @@
 ﻿namespace OnlineStoreBack_API.DTO.ModelsDTO
 {
-	public class ProductCartDTO
+	public class ProductCartDTOOutput
 	{
-		public int ProductId { get; set; }
+		public ProducReadtDTO _Product { get; set; }
 		public int Quantity { get; set; }
 	}
 }

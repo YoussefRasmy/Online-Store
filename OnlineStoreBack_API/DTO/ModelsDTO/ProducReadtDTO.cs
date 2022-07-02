@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineStoreBack_API.DTO.ModelsDTO
 {
-	public class ProductDTO
+	public class ProducReadtDTO
 	{
-		
+		public int id { get; set; }
 		public string EnglishName { get; set; }
 		public string ImagePath { get; set; }
 		public string ArabicName { get; set; }

@@ -61,25 +61,25 @@ namespace OnlineStoreBack_API.Repository
 				
 			}
 			//what if something happend with the database what should i do>>>>>>>>>>>>>>>>>>>>>>Important 
-			CalculateCart(cart);
+			//CalculateCart(cart);
 			var x = db.SaveChanges();
 			return x;
 
 		}
 
-		public void CalculateCart(Cart cart)
-		{
+		//public void CalculateCart(Cart cart)
+		//{
 
-			var cartProducts = db.CartProducts.Where(x => x.CartId == cart.Id).ToList();
-			double price = 0;
-			foreach (var cartProduct in cartProducts)
-			{
-				price += cartProduct.TotalPrice;
-			}
-			cart.TotalPrice = price;
+		//	var cartProducts = db.CartProducts.Where(x => x.CartId == cart.Id).ToList();
+		//	double price = 0;
+		//	foreach (var cartProduct in cartProducts)
+		//	{
+		//		price += cartProduct.TotalPrice;
+		//	}
+		//	cart.TotalPrice = price;
 
 
-		}
+		//}
 
 		public Cart GetByCurrerntUserId()
 		{
@@ -100,7 +100,7 @@ namespace OnlineStoreBack_API.Repository
 				//{
 				//	cart.TotalPrice += item.TotalPrice;
 				//}
-				CalculateCart(cart);
+				//CalculateCart(cart);
 			}
 			return cart;
 		}
@@ -113,7 +113,7 @@ namespace OnlineStoreBack_API.Repository
 				if (productCart.Quantity > 1)
 				{
 					productCart.Quantity--;
-					productCart.TotalPrice -= db.Products.FirstOrDefault(x => x.Id == productCart.ProductId).Price;
+					//productCart.TotalPrice -= db.Products.FirstOrDefault(x => x.Id == productCart.ProductId).Price;
 				}
 				else if (productCart.Quantity == 1)
 				{
@@ -135,7 +135,7 @@ namespace OnlineStoreBack_API.Repository
 			List<ProductOrder> productOrders = new List<ProductOrder>();
 			foreach (var item in cart.ProductCarts)
 			{
-				productOrders.Add(new ProductOrder { OrderId = order.Id, ProductId = item.ProductId, Quantity = item.Quantity, TotalPrice = item.TotalPrice });
+				productOrders.Add(new ProductOrder { OrderId = order.Id, ProductId = item.ProductId, Quantity = item.Quantity });//+TotalPrice = item.TotalPrice
 				///---------------------------------------
 
 			}

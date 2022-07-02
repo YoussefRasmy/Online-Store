@@ -1,4 +1,5 @@
-﻿using OnlineStoreBack_API.Data.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
 
 namespace OnlineStoreBack_API.Repository
@@ -17,7 +18,7 @@ namespace OnlineStoreBack_API.Repository
 		public void CalculatePrice(ProductCart cart)
 		{
 			var product = productRepository.GetById(cart.ProductId);
-			cart.TotalPrice = cart.Quantity * product.Price;
+			
 		}
 
 		public void ClearCart(int cartId)
@@ -44,7 +45,7 @@ namespace OnlineStoreBack_API.Repository
 
 		public List<ProductCart> GetAllByCartId(int cartId)
 		{
-			var res = db.CartProducts.Where(x=> x.CartId == cartId).ToList();
+			var res = db.CartProducts.Include(x=>x.Product).Where(x=> x.CartId == cartId).ToList();
 			return res;
 		}
 

@@ -4,6 +4,7 @@ using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
 using OnlineStoreBack_API.DTO.ModelsDTO;
 using OnlineStoreBack_API.Repository;
+using OnlineStoreBack_API.Repository.MabToDTO;
 using OnlineStoreBack_API.Repository.Services;
 using OnlineStoreBack_API.Repository.Services.User;
 using System.Threading.Tasks;
@@ -15,14 +16,18 @@ namespace OnlineStoreBack_API.Controllers
 	[ApiController]
 	public class CartController : ControllerBase
 	{
+		private readonly ProductRepository productRepository;
+		private readonly IProductToDTO productToDTO;
 		private readonly UserManager<StoreUser> userManager;
 		private readonly ICartService cartService;
 		private readonly ICartRepository cartRepository;
 		private readonly IUserService userSevice;
 		private readonly IProductCartRepository productCartRepository;
 
-		public CartController(UserManager<StoreUser> userManager,ICartService cartService ,ICartRepository cartRepository, IUserService userSevice, IProductCartRepository productCartRepository)
+		public CartController(ProductRepository productRepository, IProductToDTO productToDTO, UserManager<StoreUser> userManager, ICartService cartService, ICartRepository cartRepository, IUserService userSevice, IProductCartRepository productCartRepository)
 		{
+			this.productRepository = productRepository;
+			this.productToDTO = productToDTO;
 			this.userManager = userManager;
 			this.cartService = cartService;
 			this.cartRepository = cartRepository;
@@ -34,12 +39,31 @@ namespace OnlineStoreBack_API.Controllers
 
 		// GET: api/<CartController>
 		[HttpGet]
-		public async Task<ActionResult<Cart>> Get()
+		public async Task<ActionResult<cartReadDTO>> Get()
 		{
 			var user = await userManager.GetUserAsync(User);
 			var userId = await userManager.GetUserIdAsync(user);
 			var currentUserCart = cartRepository.GetBytUserId(userId);
-			return currentUserCart;
+			List<ProductCartDTOOutput> products = new List<ProductCartDTOOutput>();
+			
+			var cartProducts = productCartRepository.GetAllByCartId(currentUserCart.Id);
+
+			
+			foreach (var item in cartProducts)
+			{
+				products.Add(new ProductCartDTOOutput
+				{
+					Quantity = item.Quantity,
+					_Product = productToDTO.changeToOneDTO(productRepository.GetById(item.ProductId))
+				});
+			}
+			
+
+			//var cartProducts
+			var cartReadDTO = new cartReadDTO { Id = currentUserCart.Id, UserId = userId , Products= products};
+
+
+			return cartReadDTO;
 		}
 
 		// GET api/<CartController>/5
@@ -55,7 +79,7 @@ namespace OnlineStoreBack_API.Controllers
 
 		// POST api/<CartController>
 		[HttpPost]
-		public async Task<IActionResult> AddToCart([FromBody] ProductCartDTO productCart)//.....,string userid......>>>>>>>> somthing is wrong
+		public async Task<IActionResult> AddToCart([FromBody] ProductCartDTOInput productCart)//.....,string userid......>>>>>>>> somthing is wrong
 		{
 			var userId = await userSevice.GetUserId(User);
 			var currentUserCart = cartRepository.GetBytUserId(userId);
@@ -74,7 +98,7 @@ namespace OnlineStoreBack_API.Controllers
 
 		// PUT api/<CartController>/5
 		[HttpPut]
-		public async void Put(List<ProductCartDTO> productCartDTOs)
+		public async void Put(List<ProductCartDTOInput> productCartDTOs)
 		{
 			var userId = await userSevice.GetUserId(User);
 			var currentUserCart = cartRepository.GetBytUserId(userId);
@@ -82,7 +106,11 @@ namespace OnlineStoreBack_API.Controllers
 			currentUserCart.ProductCarts.Clear();
 
 			productCartDTOs.ForEach(x =>
-			currentUserCart.ProductCarts.Add(new ProductCart { CartId = currentUserCart.Id, ProductId = x.ProductId, Quantity = x.Quantity })
+				{
+
+					currentUserCart.ProductCarts.Add(new ProductCart { CartId = currentUserCart.Id, ProductId = x.ProductId, Quantity = x.Quantity });
+
+				}
 			);
 
 		}
@@ -114,13 +142,13 @@ namespace OnlineStoreBack_API.Controllers
 		// GET: api/<CartController>
 		[HttpDelete]
 		[Route("DeleteOne")]
-		public async Task<IActionResult> DeleteOne(int productId )
+		public  IActionResult DeleteOne(int productId)
 		{
 			//var user = await userManager.GetUserAsync(User);
 			//var userId = await userManager.GetUserIdAsync(user);
 			//var currentUserCart = cartRepository.GetBytUserId(userId);
 			var currentUserCart = cartService.GetUserCart(User);
-			productCartRepository.Delete(currentUserCart.Id,productId);
+			productCartRepository.Delete(currentUserCart.Id, productId);
 			return Ok();
 		}
 
@@ -130,7 +158,7 @@ namespace OnlineStoreBack_API.Controllers
 		//Delete All product from the cart
 		[HttpDelete]
 		[Route("DeleteAll")]
-		public async Task<IActionResult> DeleteAll(int productId)
+		public IActionResult DeleteAll(int productId)
 		{
 			//var user = await userManager.GetUserAsync(User);
 			//var userId = await userManager.GetUserIdAsync(user);

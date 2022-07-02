@@ -11,7 +11,7 @@ namespace OnlineStoreBack_API.Repository
 
 		void suptrackFromCart(ProductCart productCart);
 		void TransfairToOrder(string address, DateTime deliverDate,Cart cart);
-		void CalculateCart(Cart cart);
+		//void CalculateCart(Cart cart);
 
 	}
 }

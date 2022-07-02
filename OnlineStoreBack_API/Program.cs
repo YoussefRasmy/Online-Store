@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
 using OnlineStoreBack_API.Repository;
+using OnlineStoreBack_API.Repository.MabToDTO;
 using OnlineStoreBack_API.Repository.Services;
 using OnlineStoreBack_API.Repository.Services.User;
 using System.Security.Claims;
@@ -104,6 +105,7 @@ builder.Services.AddScoped<IProductCartRepository,ProductCartRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IVendorRepository, VendorRepository>();
+builder.Services.AddScoped<IProductToDTO, ProductToDTO>();
 
 #endregion
 
