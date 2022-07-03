@@ -32,7 +32,7 @@ namespace OnlineStoreBack_API.Repository
 			var productCarts = GetAllByCartId(cartId);
 			db.CartProducts.RemoveRange(productCarts);
 			var cart = db.Carts.FirstOrDefault(c => c.Id == cartId);
-			cart.TotalPrice = 0;
+			
 			db.SaveChanges();
 			
 		}

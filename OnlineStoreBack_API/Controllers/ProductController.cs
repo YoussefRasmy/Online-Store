@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
 using OnlineStoreBack_API.DTO.ModelsDTO;
@@ -11,6 +12,7 @@ namespace OnlineStoreBack_API.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class ProductController : ControllerBase
 	{
 		private readonly IProductRepository productRepository;

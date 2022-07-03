@@ -175,7 +175,7 @@ namespace OnlineStoreBack_API.Migrations
                         .IsUnique()
                         .HasFilter("[UserId] IS NOT NULL");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Carts", (string)null);
                 });
 
             modelBuilder.Entity("OnlineStoreBack_API.Data.Models.Category", b =>
@@ -196,7 +196,7 @@ namespace OnlineStoreBack_API.Migrations
 
                     b.HasIndex("ParentCategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("OnlineStoreBack_API.Data.Models.Order", b =>
@@ -236,7 +236,7 @@ namespace OnlineStoreBack_API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("OnlineStoreBack_API.Data.Models.Product", b =>
@@ -280,7 +280,7 @@ namespace OnlineStoreBack_API.Migrations
 
                     b.HasIndex("VendorId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("OnlineStoreBack_API.Data.Models.ProductCart", b =>
@@ -298,7 +298,7 @@ namespace OnlineStoreBack_API.Migrations
 
                     b.HasIndex("CartId");
 
-                    b.ToTable("CartProducts");
+                    b.ToTable("CartProducts", (string)null);
                 });
 
             modelBuilder.Entity("OnlineStoreBack_API.Data.Models.ProductOrder", b =>
@@ -319,7 +319,7 @@ namespace OnlineStoreBack_API.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderProducts");
+                    b.ToTable("OrderProducts", (string)null);
                 });
 
             modelBuilder.Entity("OnlineStoreBack_API.Data.Models.StoreUser", b =>
@@ -421,7 +421,7 @@ namespace OnlineStoreBack_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vendors");
+                    b.ToTable("Vendors", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

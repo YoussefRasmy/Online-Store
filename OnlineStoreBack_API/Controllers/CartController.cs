@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
@@ -14,6 +15,7 @@ namespace OnlineStoreBack_API.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class CartController : ControllerBase
 	{
 		private readonly IProductRepository productRepository;
@@ -39,6 +41,7 @@ namespace OnlineStoreBack_API.Controllers
 
 		// GET: api/<CartController>
 		[HttpGet]
+		
 		public async Task<ActionResult<cartReadDTO>> Get()
 		{
 			var user = await userManager.GetUserAsync(User);
@@ -81,8 +84,9 @@ namespace OnlineStoreBack_API.Controllers
 		[HttpPost]
 		public async Task<IActionResult> AddToCart([FromBody] ProductCartDTOInput productCart)//.....,string userid......>>>>>>>> somthing is wrong
 		{
-			//var userId = await userSevice.GetUserId(User);0006da07-2451-4a69-94f2-2acce36a8278
-			var currentUserCart = cartRepository.GetBytUserId("0006da07-2451-4a69-94f2-2acce36a8278");
+			//0006da07-2451-4a69-94f2-2acce36a8278
+			var userId = await userSevice.GetUserId(User);
+			var currentUserCart = cartRepository.GetBytUserId(userId);
 			var newProductCart = new ProductCart { CartId = currentUserCart.Id, ProductId = productCart.ProductId, Quantity = productCart.Quantity };
 			var res = cartRepository.AddToCart(newProductCart);//// first time it givs me 2 then the second 1 then 0 so what is going on ??
 			if (res == 0)/////////////////////////////////////////>>>>>>>>>>>>>>>>>>>>> 
@@ -146,14 +150,24 @@ namespace OnlineStoreBack_API.Controllers
 		// GET: api/<CartController>
 		[HttpDelete]
 		[Route("DeleteOne")]
-		public IActionResult DeleteOne(int productId)
+		public async Task< IActionResult> DeleteOne(int productId)
 		{
 			//var user = await userManager.GetUserAsync(User);
 			//var userId = await userManager.GetUserIdAsync(user);
 			//var currentUserCart = cartRepository.GetBytUserId(userId);
-			var currentUserCart = cartService.GetUserCart(User);
-			productCartRepository.Delete(currentUserCart.Id, productId);
-			return Ok();
+			var product = productRepository.GetById(productId);
+			if (product!= null)
+			{
+				var currentUserCart = await cartService.GetUserCart(User);
+				var productCart = productCartRepository.GetById(currentUserCart.Id, productId);
+				if (productCart != null)
+				{
+					productCartRepository.Delete(currentUserCart.Id, productId);
+					return Ok();
+				}
+				return BadRequest();
+			}
+			return BadRequest();
 		}
 
 		#endregion
@@ -162,12 +176,12 @@ namespace OnlineStoreBack_API.Controllers
 		//Delete All product from the cart
 		[HttpDelete]
 		[Route("DeleteAll")]
-		public IActionResult DeleteAll(int productId)
+		public async Task<IActionResult> DeleteAll()
 		{
 			//var user = await userManager.GetUserAsync(User);
 			//var userId = await userManager.GetUserIdAsync(user);
 			//var currentUserCart = cartRepository.GetBytUserId(userId);
-			var currentUserCart = cartService.GetUserCart(User);
+			var currentUserCart = await cartService.GetUserCart(User);
 			productCartRepository.ClearCart(currentUserCart.Id);
 			return Ok();
 		}

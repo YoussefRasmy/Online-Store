@@ -42,6 +42,11 @@ namespace OnlineStoreBack_API.Controllers
 					Address = registerDTO.Address,
 					UserName = registerDTO.Username,
 				};
+				var userExest = await userManager.FindByNameAsync(newUser.UserName);
+				if (userExest != null)
+				{
+					return BadRequest("User Alredy Exest");
+				}
 				var creationRes = await userManager.CreateAsync(newUser, registerDTO.Password);
 
 				if (!creationRes.Succeeded)
@@ -77,6 +82,10 @@ namespace OnlineStoreBack_API.Controllers
 		[Route("login")]
 		public async Task<ActionResult<TokenDTO>> Login(LoginDTO credentials)
 		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest("Wrong Credentials");
+			}
 			var user = await userManager.FindByNameAsync(credentials.UserName);
 			if (user == null)
 			{
@@ -84,13 +93,13 @@ namespace OnlineStoreBack_API.Controllers
 			}
 			if (await userManager.IsLockedOutAsync(user))
 			{
-				return BadRequest("Pleas try again later");
+				return BadRequest("Pleas try again later You are Loked Out For Now");
 			}
 			bool isAuthenticated = await userManager.CheckPasswordAsync(user, credentials.Password);
 			if (!isAuthenticated)
 			{
 				await userManager.AccessFailedAsync(user);
-				return Unauthorized("Wrong Credentials");
+				return Unauthorized("Wrong User Name or Password");
 			}
 
 			//generate key
