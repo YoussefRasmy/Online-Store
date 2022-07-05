@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using OnlineStoreBack_API.Data.Context;
 using OnlineStoreBack_API.Data.Models;
@@ -122,11 +123,21 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+
+app.UseStaticFiles(new StaticFileOptions
+{
+	FileProvider = new PhysicalFileProvider(
+		Path.Combine(builder.Environment.ContentRootPath, "Assets")),
+	RequestPath = "/Assets"
+});
+
 app.UseCors(Policy);
 
 app.UseAuthentication();//
 
 app.UseAuthorization();
+
+
 
 app.MapControllers();
 #endregion

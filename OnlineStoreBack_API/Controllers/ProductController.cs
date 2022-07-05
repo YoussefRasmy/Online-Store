@@ -122,17 +122,17 @@ namespace OnlineStoreBack_API.Controllers
 
 		// POST api/<ProductController>
 		[HttpPost]
-		public IActionResult Post([FromBody] ProductWriteDTO _product)
+		public ActionResult<Product> Post([FromBody] ProductWriteDTO _product)
 		{
 			if (ModelState.IsValid)
 			{
 				var product = productToDTO.changeToOneProduct(_product);
 				productRepository.Add(product);
-				return Ok();
+				return product;
 			}
 			else
 			{
-				return BadRequest(ModelState.IsValid.ToString());
+				return BadRequest("some thing wrong with the model");
 			}
 		}
 		#endregion
@@ -142,24 +142,22 @@ namespace OnlineStoreBack_API.Controllers
 
 		// PUT api/<ProductController>/5
 		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] Product productEdit)
+		//public void Put(int id, [FromBody] Product productEdit)
+		public void Edit(int id, [FromBody] ProductWriteDTO productEdit)
 		{
-			if (id == productEdit.Id)
+			var product = productRepository.GetById(id);
+			if (product != null)
 			{
-
-				var product = productRepository.GetById(id);
-				if (product != null)
-				{
-					product.Price = productEdit.Price;
-					product.EnglishName = productEdit.EnglishName;
-					product.ArabicName = productEdit.ArabicName;
-					product.VendorId = productEdit.VendorId;
-					product.CategoryId = productEdit.CategoryId;
-					product.Description = productEdit.Description;
-					product.ImagePath = productEdit.ImagePath;
-					product.Quantity = productEdit.Quantity;
-				}
+				product.Price = productEdit.Price;
+				product.EnglishName = productEdit.EnglishName;
+				product.ArabicName = productEdit.ArabicName;
+				product.VendorId = productEdit.VendorId;
+				product.CategoryId = productEdit.CategoryId;
+				product.Description = productEdit.Description;
+				product.ImagePath = productEdit.ImagePath;
+				product.Quantity = productEdit.Quantity;
 			}
+			productRepository.Update(product);
 		}
 		#endregion
 

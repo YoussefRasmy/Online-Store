@@ -36,9 +36,13 @@ namespace OnlineStoreBack_API.Repository
 			}
 		}
 
+
 		public List<Product> GetProductByCategoryId(int CategoryId)
 		{
 			return db.Products.Where(x => x.CategoryId == CategoryId).ToList();
 		}
+
+
+		
 	} 
 }

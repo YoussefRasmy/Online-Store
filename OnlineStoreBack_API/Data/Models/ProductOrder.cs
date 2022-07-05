@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
+
+
 namespace OnlineStoreBack_API.Data.Models
 {
 	public class ProductOrder

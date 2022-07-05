@@ -27,13 +27,20 @@ namespace OnlineStoreBack_API.Controllers
 		#region Read
 		// GET: api/<CategoryController>
 		[HttpGet]
-		public ActionResult<List<CategoryReadDTO>> Get()
+		public ActionResult<List<CategoryDetailsDTO>> Get()
 		{
 			var categores = categoryRepository.GetSupAndParentOnly();
-			List<CategoryReadDTO> list = new List<CategoryReadDTO>();
+			List<CategoryDetailsDTO> list = new List<CategoryDetailsDTO>();
 			foreach (var item in categores)
 			{
-				list.Add(new CategoryReadDTO { Name = item.Name, Id = item.Id });
+				var parentId = item.ParentCategoryId;
+				if (parentId != null)
+				{
+					var parentCategory = categoryRepository.GetById((int)item.ParentCategoryId);
+					list.Add(new CategoryDetailsDTO { Name = item.Name, Id = item.Id, ParentCategoryName = parentCategory.Name });
+				}
+				
+				list.Add(new CategoryDetailsDTO { Name = item.Name, Id = item.Id  });
 			}
 			return list;
 		}

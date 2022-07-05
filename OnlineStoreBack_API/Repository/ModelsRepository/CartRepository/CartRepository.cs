@@ -40,12 +40,9 @@ namespace OnlineStoreBack_API.Repository
 			{
 				if (product.Quantity >= 1 && product.Quantity >= productCart.Quantity)
 				{
-					//productCart.Quantity++;
-					//productCart.TotalPrice += db.Products.FirstOrDefault(x => x.Id == productCart.ProductId).Price;
 					var TheProductCart = db.CartProducts.FirstOrDefault(x => x.ProductId == productCart.ProductId && x.CartId == productCart.CartId);
 					TheProductCart.Quantity = productCart.Quantity;
 					productCartRepository.CalculatePrice(TheProductCart);
-					
 				}
 			}
 			else
@@ -53,8 +50,8 @@ namespace OnlineStoreBack_API.Repository
 				if (product.Quantity >= productCart.Quantity)
 				{
 					db.CartProducts.Add(productCart);
-
-					productRepository.DecreacInventorty(productCart.ProductId, productCart.Quantity);
+					
+					//productRepository.DecreacInventorty(productCart.ProductId, productCart.Quantity);
 					productCartRepository.CalculatePrice(productCart);
 					
 				}
@@ -62,24 +59,25 @@ namespace OnlineStoreBack_API.Repository
 			}
 			//what if something happend with the database what should i do>>>>>>>>>>>>>>>>>>>>>>Important 
 			//CalculateCart(cart);
+			CalculateCart(cart);
 			var x = db.SaveChanges();
 			return x;
 
 		}
 
-		//public void CalculateCart(Cart cart)
-		//{
+		public void CalculateCart(Cart cart)
+		{
 
-		//	var cartProducts = db.CartProducts.Where(x => x.CartId == cart.Id).ToList();
-		//	double price = 0;
-		//	foreach (var cartProduct in cartProducts)
-		//	{
-		//		price += cartProduct.TotalPrice;
-		//	}
-		//	cart.TotalPrice = price;
+			var cartProducts = db.CartProducts.Where(x => x.CartId == cart.Id).ToList();
+			double price = 0;
+			foreach (var cartProduct in cartProducts)
+			{
+				price += cartProduct.TotalPrice;
+			}
+			cart.TotalPrice = price;
 
 
-		//}
+		}
 
 		public Cart GetByCurrerntUserId()
 		{
@@ -125,28 +123,31 @@ namespace OnlineStoreBack_API.Repository
 
 		}
 
-		public void TransfairToOrder(string address, DateTime deliverDate, Cart cart)
+		public void TransfairToOrder(string address, DateTime deliverDate, Cart cart,int _paymentMethod)
 		{
 			//var cart = GetByCurrerntUserId();
-			var order = new Order { Address = address, UserId = cart.UserId, OrderState = _OrderState.Pending, Order_Date = DateTime.Now, Deliver_Date = deliverDate };
+			var order = new Order { Address = address, UserId = cart.UserId, PaymentMethod = (PaymentMethod)_paymentMethod,  Order_Date = DateTime.Now, Deliver_Date = deliverDate, TotalPrice=cart.TotalPrice };
 
 			orderRepository.Add(order);
+			
 
 			List<ProductOrder> productOrders = new List<ProductOrder>();
-			foreach (var item in cart.ProductCarts)
+			var productCarts = productCartRepository.GetAllByCartId(cart.Id);
+			foreach (var item in productCarts)//this is wrong get it from its repo
 			{
-				productOrders.Add(new ProductOrder { OrderId = order.Id, ProductId = item.ProductId, Quantity = item.Quantity });//+TotalPrice = item.TotalPrice
+				productOrders.Add(new ProductOrder { OrderId = order.Id, ProductId = item.ProductId, Quantity = item.Quantity, TotalPrice = item.TotalPrice });//+TotalPrice = item.TotalPrice
 				///---------------------------------------
 
 			}
 			//order.ProductOrders = productOrders;
 			productOrderRepository.AddList(productOrders);// to let the inventory know
-			order.TotalPrice = 0;
-			foreach (var item in productOrders)
-			{
-				order.TotalPrice += item.TotalPrice;
-			}
+			//order.TotalPrice = 0;
+			//foreach (var item in productOrders)
+			//{
+			//	order.TotalPrice += item.TotalPrice;
+			//}
 			cart.TotalPrice = 0;
+
 		}
 	}
 }

@@ -19,8 +19,8 @@ namespace OnlineStoreBack_API.Repository.Services
 		}
 		public async Task<Cart> GetUserCart(ClaimsPrincipal _user)
 		{
-			var user = await userManager.GetUserAsync(_user);
-			var userId = await userManager.GetUserIdAsync(user);
+			
+			var userId = await userService.GetUserId(_user);
 			var currentUserCart = cartRepository.GetBytUserId(userId);
 			return currentUserCart;
 		}

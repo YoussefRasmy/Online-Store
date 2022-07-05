@@ -10,7 +10,7 @@ namespace OnlineStoreBack_API.Repository
 		int AddToCart (ProductCart productCart);
 
 		void suptrackFromCart(ProductCart productCart);
-		void TransfairToOrder(string address, DateTime deliverDate,Cart cart);
+		void TransfairToOrder(string address, DateTime deliverDate,Cart cart, int paymentMethod);
 		//void CalculateCart(Cart cart);
 
 	}

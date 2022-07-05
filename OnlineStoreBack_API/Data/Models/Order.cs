@@ -20,11 +20,11 @@ namespace OnlineStoreBack_API.Data.Models
 	{
 		public int Id { get; set; }
 		public PaymentMethod PaymentMethod { get; set; }
-		public Double shipping_Price { get; set; }
+		//public Double shipping_Price { get; set; }
 		public string Address { get; set; }
 		public DateTime Order_Date { get; set; }
 		public DateTime Deliver_Date { get; set; }
-		public _OrderState OrderState { get; set; }
+		//public _OrderState OrderState { get; set; }
 		public double TotalPrice { get; set; }
 		[Required]
 		[ForeignKey("User")]

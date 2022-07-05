@@ -50,9 +50,9 @@ public class GenericRepository<TEntity, TID> : IGenericRepository<TEntity, TID>
 		return _context.SaveChanges() > 0;
 	}
 
-	public void Update(TEntity entity)
+	public  void Update(TEntity entity)
 	{
-
+		SaveChanges();
 	}
 }
 

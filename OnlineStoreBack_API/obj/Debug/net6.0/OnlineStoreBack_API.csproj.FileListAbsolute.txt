@@ -1,9 +1,9 @@
-C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\OnlineStoreBack_API.dll
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\appsettings.Development.json
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\appsettings.json
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\OnlineStoreBack_API.exe
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\OnlineStoreBack_API.deps.json
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\OnlineStoreBack_API.runtimeconfig.json
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\OnlineStoreBack_API.dll
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\OnlineStoreBack_API.pdb
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Humanizer.dll
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

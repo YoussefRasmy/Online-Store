@@ -41,16 +41,15 @@ namespace OnlineStoreBack_API.Controllers
 
 		// GET: api/<CartController>
 		[HttpGet]
-		
-		public async Task<ActionResult<cartReadDTO>> Get()
+		//some change will happen here i will return list<ProductCartDTOOutput> insted of cartReadDTO
+		public async Task<ActionResult<List<ProductCartDTOOutput>>> Get()
 		{
-			var user = await userManager.GetUserAsync(User);
-			var userId = await userManager.GetUserIdAsync(user);
-			var currentUserCart = cartRepository.GetBytUserId(userId);
+
+			var currentUserCart = await cartService.GetUserCart(User);
 			List<ProductCartDTOOutput> products = new List<ProductCartDTOOutput>();
 
 			var cartProducts = productCartRepository.GetAllByCartId(currentUserCart.Id);
-
+			var userId = await userSevice.GetUserId(User);
 
 			foreach (var item in cartProducts)
 			{
@@ -63,10 +62,10 @@ namespace OnlineStoreBack_API.Controllers
 
 
 			//var cartProducts
-			var cartReadDTO = new cartReadDTO { Id = currentUserCart.Id, UserId = userId, Products = products };
+			//var cartReadDTO = new cartReadDTO { Id = currentUserCart.Id, UserId = userId, Products = products };
 
 
-			return cartReadDTO;
+			return products;
 		}
 
 		// GET api/<CartController>/5
@@ -85,15 +84,14 @@ namespace OnlineStoreBack_API.Controllers
 		public async Task<IActionResult> AddToCart([FromBody] ProductCartDTOInput productCart)//.....,string userid......>>>>>>>> somthing is wrong
 		{
 			//0006da07-2451-4a69-94f2-2acce36a8278
-			var userId = await userSevice.GetUserId(User);
-			var currentUserCart = cartRepository.GetBytUserId(userId);
+			
+			var currentUserCart = await cartService.GetUserCart(User);
 			var newProductCart = new ProductCart { CartId = currentUserCart.Id, ProductId = productCart.ProductId, Quantity = productCart.Quantity };
-			var res = cartRepository.AddToCart(newProductCart);//// first time it givs me 2 then the second 1 then 0 so what is going on ??
-			if (res == 0)/////////////////////////////////////////>>>>>>>>>>>>>>>>>>>>> 
-			{
-				return BadRequest("Something went Wrong ");
-			}
-			return Ok(res);
+			cartRepository.AddToCart(newProductCart);//// first time it givs me 2 then the second 1 then 0 so what is going on ??
+			
+				
+			
+			return Ok();
 		}
 
 		#endregion
@@ -102,19 +100,19 @@ namespace OnlineStoreBack_API.Controllers
 
 		// PUT api/<CartController>/5
 		[HttpPut]
-		public IActionResult Put(List<ProductCartDTOInput> productCartDTOs)
+		public async Task<IActionResult> Put(List<ProductCartDTOInput> productCartDTOs)
 		{
 
 
 			//var userId = await userSevice.GetUserId(User);0006da07-2451-4a69-94f2-2acce36a8278
-			var currentUserCart = cartRepository.GetBytUserId("0006da07-2451-4a69-94f2-2acce36a8278");
+			var currentUserCart = await cartService.GetUserCart(User);
 
 			productCartRepository.ClearCart(currentUserCart.Id);
 
 			productCartDTOs.ForEach(x =>
 				{
 
-					productCartRepository.AddProductCart(new ProductCart { CartId = currentUserCart.Id, ProductId = x.ProductId, Quantity = x.Quantity });
+					cartRepository.AddToCart(new ProductCart { CartId = currentUserCart.Id, ProductId = x.ProductId, Quantity = x.Quantity });
 
 				}
 				);
@@ -130,15 +128,21 @@ namespace OnlineStoreBack_API.Controllers
 		[HttpPost]
 		// POST api/<CartController>
 		[Route("cartToOrder")]
-		public async void TransfairToOrder([FromBody] OrderInfoDTO orderInfoDTO)//.......string userId....>>>>>>>> somthing is wrong
+		public async Task<IActionResult> TransfairToOrder([FromBody] OrderInfoWriteDTO orderInfoDTO)//.......string userId....>>>>>>>> somthing is wrong
 		{
-			//var user = await userManager.GetUserAsync(User);
-			//var userId = await userManager.GetUserIdAsync(user);
+			if (ModelState.IsValid)
+			{
+				//var userId = await userSevice.GetUserId(User);
+				//var currentUserCart = cartRepository.GetBytUserId(userId);
 
-			var userId = await userSevice.GetUserId(User);
-			var currentUserCart = cartRepository.GetBytUserId(userId);
-			cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress, orderInfoDTO.DeliverDate, currentUserCart);
-			productCartRepository.ClearCart(currentUserCart.Id);
+				var currentUserCart = await cartService.GetUserCart(User);
+				if (currentUserCart == null)BadRequest();
+				cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress, orderInfoDTO.DeliverDate, currentUserCart, orderInfoDTO.PaymentMethod);
+				productCartRepository.ClearCart(currentUserCart.Id);
+				return Ok();
+			}
+
+			return BadRequest();
 
 		}
 
@@ -167,7 +171,7 @@ namespace OnlineStoreBack_API.Controllers
 				}
 				return BadRequest();
 			}
-			return BadRequest();
+			return BadRequest($"product Id = {productId}");
 		}
 
 		#endregion
@@ -184,7 +188,7 @@ namespace OnlineStoreBack_API.Controllers
 			var currentUserCart = await cartService.GetUserCart(User);
 			productCartRepository.ClearCart(currentUserCart.Id);
 			return Ok();
-		}
+			}
 		#endregion
 
 	}

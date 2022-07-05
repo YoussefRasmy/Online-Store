@@ -21,17 +21,19 @@ namespace OnlineStoreBack_API.Repository
 			db.SaveChanges();
 		}
 
-		public void CalculatePrice(ProductCart cart)
+		public void CalculatePrice(ProductCart productCart)///////////////////////need to work on it imidiatly
 		{
-			var product = productRepository.GetById(cart.ProductId);
-			
+			var product = productRepository.GetById(productCart.ProductId);
+			productCart.TotalPrice = product.Price * productCart.Quantity;
+
+
 		}
 
 		public void ClearCart(int cartId)
 		{
 			var productCarts = GetAllByCartId(cartId);
 			db.CartProducts.RemoveRange(productCarts);
-			var cart = db.Carts.FirstOrDefault(c => c.Id == cartId);
+			//var cart = db.Carts.FirstOrDefault(c => c.Id == cartId);
 			
 			db.SaveChanges();
 			
@@ -51,7 +53,7 @@ namespace OnlineStoreBack_API.Repository
 
 		public List<ProductCart> GetAllByCartId(int cartId)
 		{
-			var res = db.CartProducts.Include(x=>x.Product).Where(x=> x.CartId == cartId).ToList();
+			var res = db.CartProducts.Where(x=> x.CartId == cartId).Include(x => x.Product).ToList();
 			return res;
 		}
 

@@ -95,7 +95,7 @@ namespace OnlineStoreBack_API.Repository.MabToDTO
 				VendorId = _product.VendorId,
 				Price = _product.Price,
 			};
-			throw new NotImplementedException();
+			return product;
 		}
 	}
 }

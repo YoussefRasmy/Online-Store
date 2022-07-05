@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineStoreBack_API.Data.Context;
 
@@ -11,9 +12,10 @@ using OnlineStoreBack_API.Data.Context;
 namespace OnlineStoreBack_API.Migrations
 {
     [DbContext(typeof(OnlineStoreContext))]
-    partial class OnlineStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20220703230033_ProductCartTotalPrice")]
+    partial class ProductCartTotalPrice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -213,6 +215,9 @@ namespace OnlineStoreBack_API.Migrations
                     b.Property<DateTime>("Deliver_Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("OrderState")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Order_Date")
                         .HasColumnType("datetime2");
 
@@ -225,6 +230,9 @@ namespace OnlineStoreBack_API.Migrations
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("shipping_Price")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

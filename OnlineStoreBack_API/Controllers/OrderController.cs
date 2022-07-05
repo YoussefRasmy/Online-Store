@@ -40,7 +40,14 @@ namespace OnlineStoreBack_API.Controllers
 				{
 					var productId = item.ProductId;
 					var product = productRepository.GetById(productId);
-					newOrder.products.Add(new ProductOrderReadDTO { ImagePath = product.ImagePath, Price = product.Price, ProductName = product.EnglishName });
+					newOrder.products.Add(new ProductOrderReadDTO
+					{
+						ImagePath = product.ImagePath,
+						Price = product.Price,
+						ProductName = product.EnglishName,
+						ProductId = item.ProductId,
+						Quantity = item.Quantity
+					});
 				}
 				ordersDTO.Add(newOrder);
 			}

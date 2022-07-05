@@ -9,6 +9,7 @@ namespace OnlineStoreBack_API.Data.Models
 		[ForeignKey("Cart")]
 		public int CartId { get; set; }
 		public int Quantity { get; set; }
+		public double TotalPrice { get; set; }
 
 		//Nav Prop
 		public virtual Product Product  { get; set; }

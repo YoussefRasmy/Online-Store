@@ -14,9 +14,7 @@ namespace OnlineStoreBack_API.Repository
 		public OrderRepository(OnlineStoreContext context) : base(context)
 		{
 			this.db = context;
-		
-		
-			
+
 		}
 
 		#region commented
