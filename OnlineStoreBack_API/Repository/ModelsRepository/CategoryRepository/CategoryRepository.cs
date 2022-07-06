@@ -3,7 +3,7 @@ using OnlineStoreBack_API.Data.Models;
 
 namespace OnlineStoreBack_API.Repository
 {
-	public class CategoryRepository : GenericRepository<Category, int>, ICategoryRepository
+	public class CategoryRepository : GenericRepository<Category, int?>, ICategoryRepository
 	{
 		private readonly OnlineStoreContext db;
 

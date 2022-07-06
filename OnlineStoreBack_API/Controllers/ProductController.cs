@@ -12,7 +12,7 @@ namespace OnlineStoreBack_API.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	[Authorize]
+	
 	public class ProductController : ControllerBase
 	{
 		private readonly IProductRepository productRepository;
@@ -122,6 +122,7 @@ namespace OnlineStoreBack_API.Controllers
 
 		// POST api/<ProductController>
 		[HttpPost]
+		[Authorize]
 		public ActionResult<Product> Post([FromBody] ProductWriteDTO _product)
 		{
 			if (ModelState.IsValid)
@@ -142,6 +143,7 @@ namespace OnlineStoreBack_API.Controllers
 
 		// PUT api/<ProductController>/5
 		[HttpPut("{id}")]
+		[Authorize]
 		//public void Put(int id, [FromBody] Product productEdit)
 		public void Edit(int id, [FromBody] ProductWriteDTO productEdit)
 		{
@@ -165,6 +167,7 @@ namespace OnlineStoreBack_API.Controllers
 
 		// DELETE api/<ProductController>/5
 		[HttpDelete("{id}")]
+		[Authorize]
 		public void Delete(int id)
 		{
 			var product = productRepository.GetById(id);

@@ -13,14 +13,16 @@ namespace OnlineStoreBack_API.Controllers
 	public class OrderController : ControllerBase
 	{
 		private readonly UserManager<StoreUser> userManager;
-		private readonly OrderRepository orderRepository;
-		private readonly UserService userSevice;
-		private readonly ProductRepository productRepository;
+		private readonly IOrderRepository orderRepository;
+		private readonly IProductOrderRepository productOrderRepository;
+		private readonly IUserService userSevice;
+		private readonly IProductRepository productRepository;
 
-		public OrderController(UserManager<StoreUser> userManager, OrderRepository orderRepository, UserService userSevice, ProductRepository productRepository)
+		public OrderController(UserManager<StoreUser> userManager, IOrderRepository orderRepository,IProductOrderRepository productOrderRepository ,IUserService userSevice, IProductRepository productRepository)
 		{
 			this.userManager = userManager;
 			this.orderRepository = orderRepository;
+			this.productOrderRepository = productOrderRepository;
 			this.userSevice = userSevice;
 			this.productRepository = productRepository;
 		}
@@ -34,24 +36,56 @@ namespace OnlineStoreBack_API.Controllers
 
 			foreach (var order in orders)
 			{
-				var newOrder = new OrderDTO { DeliveryAddress = order.Address, OrderNum = orderNum++, TotalPrice = order.TotalPrice, _PaymentMethod = order.PaymentMethod };
+				var newOrder = new OrderDTO { DeliveryAddress = order.Address, OrderNum = orderNum++, id = order.Id ,TotalPrice = order.TotalPrice, _PaymentMethod = order.PaymentMethod };
 
 				foreach (var item in order.ProductOrders)
 				{
 					var productId = item.ProductId;
 					var product = productRepository.GetById(productId);
-					newOrder.products.Add(new ProductOrderReadDTO
-					{
+
+					newOrder.products.Add(new ProductOrderReadDTO{
 						ImagePath = product.ImagePath,
 						Price = product.Price,
 						ProductName = product.EnglishName,
 						ProductId = item.ProductId,
-						Quantity = item.Quantity
+						Quantity = item.Quantity,
+						
 					});
 				}
 				ordersDTO.Add(newOrder);
 			}
 			return ordersDTO;
+		}
+
+		[HttpGet]
+		[Route("one")]
+		public ActionResult<OrderDTO> GetOrder(int id)
+		{
+			var order = orderRepository.GetById(id);
+
+			var newOrder = new OrderDTO { DeliveryAddress = order.Address,id = order.Id, TotalPrice = order.TotalPrice, _PaymentMethod = order.PaymentMethod };
+
+			var productsOfTheOrder = productOrderRepository.GetAllByOrderId(id);
+			if (productsOfTheOrder is null)
+			{
+				return BadRequest("there is no order");
+			}
+			foreach (var item in productsOfTheOrder)
+			{
+				var productId = item.ProductId;
+				var product = productRepository.GetById(productId);
+
+				newOrder.products.Add(new ProductOrderReadDTO
+				{
+					ImagePath = product.ImagePath,
+					Price = product.Price,
+					ProductName = product.EnglishName,
+					ProductId = item.ProductId,
+					Quantity = item.Quantity,
+
+				});
+			}
+			return newOrder;
 		}
 	}
 }

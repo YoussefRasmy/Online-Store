@@ -2,7 +2,7 @@
 
 namespace OnlineStoreBack_API.Repository
 {
-	public interface ICategoryRepository:IGenericRepository<Category,int>
+	public interface ICategoryRepository:IGenericRepository<Category,int?>
 	{
 	
 	

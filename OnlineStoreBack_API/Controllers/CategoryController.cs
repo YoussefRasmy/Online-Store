@@ -27,23 +27,44 @@ namespace OnlineStoreBack_API.Controllers
 		#region Read
 		// GET: api/<CategoryController>
 		[HttpGet]
-		public ActionResult<List<CategoryDetailsDTO>> Get()
+		public ActionResult<List<CategoryReadDTO>> Get()
 		{
 			var categores = categoryRepository.GetSupAndParentOnly();
-			List<CategoryDetailsDTO> list = new List<CategoryDetailsDTO>();
+			List<CategoryReadDTO> list = new List<CategoryReadDTO>();
 			foreach (var item in categores)
 			{
-				var parentId = item.ParentCategoryId;
-				if (parentId != null)
-				{
-					var parentCategory = categoryRepository.GetById((int)item.ParentCategoryId);
-					list.Add(new CategoryDetailsDTO { Name = item.Name, Id = item.Id, ParentCategoryName = parentCategory.Name });
-				}
-				
-				list.Add(new CategoryDetailsDTO { Name = item.Name, Id = item.Id  });
+				list.Add(new CategoryReadDTO { Name = item.Name, Id = item.Id });
 			}
 			return list;
 		}
+
+		[HttpGet]
+		[Route("all")]
+		public ActionResult<List<CategoryDetailsDTO>> GetAll()
+		{
+			var categores = categoryRepository.GetAll();
+			List<CategoryDetailsDTO> list = new List<CategoryDetailsDTO>();
+			foreach (var item in categores)
+			{
+				if (item.Id == 7)
+				{
+					continue;
+				}
+				var parent = categoryRepository.GetById(item.ParentCategoryId);
+				if (parent == null)
+				{
+					list.Add(new CategoryDetailsDTO { Name = item.Name, Id = item.Id});
+				}
+				else
+				{
+					list.Add(new CategoryDetailsDTO { Name = item.Name, Id = item.Id, ParentCategoryName = parent.Name, ParentCategoryId= parent.Id });
+				}
+			}
+			return list;
+		}
+
+
+
 
 		// GET api/<CategoryController>/5
 
@@ -55,9 +76,29 @@ namespace OnlineStoreBack_API.Controllers
 		// GET api/<CategoryController>/Name
 		[HttpGet]
 		[Route("Name")]
-		public ActionResult<List<Category>> GetByName(string name)
+		public ActionResult<List<CategoryDetailsDTO>> GetByName(string name)
 		{
-			return categoryRepository.GetByName(name);
+			var categores = categoryRepository.GetByName(name);
+			List<CategoryDetailsDTO> list = new List<CategoryDetailsDTO>();
+			foreach (var item in categores)
+			{
+				if (item.Id==7)
+				{
+					continue;
+				}
+				var parent = categoryRepository.GetById(item.ParentCategoryId);
+				if (parent == null)
+				{
+					list.Add(new CategoryDetailsDTO { Name = item.Name, Id = item.Id });
+				}
+				else
+				{
+					list.Add(new CategoryDetailsDTO { Name = item.Name, Id = item.Id, ParentCategoryName = parent.Name, ParentCategoryId = parent.Id });
+				}
+			}
+			return list;
+
+
 		}
 
 		#endregion
@@ -66,19 +107,21 @@ namespace OnlineStoreBack_API.Controllers
 		[HttpPost]
 		public void Post([FromBody] CategoryWriteDTO categoryDTO)
 		{
-			var category = new Category { Name= categoryDTO.Name, ParentCategoryId = categoryDTO?.ParentCategoryId };
+
+			var category = new Category { Name = categoryDTO.Name, ParentCategoryId = categoryDTO?.ParentCategoryId };
 			categoryRepository.Add(category);
 
 		}
 
 		// PUT api/<CategoryController>/5
 		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] Category category)
+		public void Put(int id, [FromBody] CategoryWriteDTO category)
 		{
-			
-			var cat = categoryRepository.GetById(id);	
+
+			var cat = categoryRepository.GetById(id);
 			cat.Name = category.Name;
 			cat.ParentCategoryId = category.ParentCategoryId;
+			categoryRepository.Update(cat);
 		}
 
 		// DELETE api/<CategoryController>/5
