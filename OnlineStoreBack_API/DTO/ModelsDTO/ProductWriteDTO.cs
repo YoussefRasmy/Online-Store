@@ -6,7 +6,7 @@ namespace OnlineStoreBack_API.DTO.ModelsDTO
 	public class ProductWriteDTO
 	{
 		[Required]
-		[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use English letters only please")]
+		[RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Use English letters only please")]
 		public string EnglishName { get; set; }
 		[Required]
 		//^[\u0621-\u064A0-9 ]+$

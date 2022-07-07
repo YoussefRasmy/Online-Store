@@ -30,6 +30,26 @@ namespace OnlineStoreBack_API.Controllers
 
 		#region Read
 
+
+
+		[HttpGet]
+		[Route("pagination/{pageNumber:int}/{pageSize:int}/{categoryId:int?}")]
+		public ActionResult<ProductPagenationReadDTO> GetPagination(int pageNumber,int pageSize,int? categoryId)
+		{
+
+			var Products = productRepository.GetPagenation(pageNumber,pageSize, categoryId);
+			var TotalCount = productRepository.GetProductsCount();
+
+			var ProductsDTO = productToDTO.changeToManyDTOs(Products);
+
+			
+
+			return new ProductPagenationReadDTO { Count=TotalCount, Products = ProductsDTO};
+		}
+
+
+
+
 		// GET: api/<ProductController>
 		[HttpGet]
 		public ActionResult<List<ProducReadtDTO>> Get()
@@ -63,7 +83,7 @@ namespace OnlineStoreBack_API.Controllers
 
 			var ProductsDTO = productToDTO.changeToManyDTOs(Products);
 
-			ProductsDTO= ProductsDTO.OrderBy(x=>x.EnglishName).ToList();
+			ProductsDTO= ProductsDTO.OrderBy(x=>x.Category.Id ).OrderBy(x=>x.EnglishName).ToList();
 
 			return ProductsDTO;
 
@@ -123,13 +143,13 @@ namespace OnlineStoreBack_API.Controllers
 		// POST api/<ProductController>
 		[HttpPost]
 		[Authorize]
-		public ActionResult<Product> Post([FromBody] ProductWriteDTO _product)
+		public IActionResult Post([FromBody] ProductWriteDTO _product)
 		{
 			if (ModelState.IsValid)
 			{
 				var product = productToDTO.changeToOneProduct(_product);
 				productRepository.Add(product);
-				return product;
+				return Ok();
 			}
 			else
 			{

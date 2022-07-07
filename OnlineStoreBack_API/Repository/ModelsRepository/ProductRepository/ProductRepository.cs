@@ -42,7 +42,19 @@ namespace OnlineStoreBack_API.Repository
 			return db.Products.Where(x => x.CategoryId == CategoryId).ToList();
 		}
 
+		public List<Product> GetPagenation(int pageNum, int pageSize, int? categoryId)
+		{
+			if (categoryId!=null)
+			{
+				return db.Products.OrderBy(x=>x.EnglishName).Where(x=>x.CategoryId == categoryId).Skip((pageNum - 1) * pageSize).Take(pageSize).ToList();
 
-		
+			}
+			return db.Products.OrderBy(x => x.EnglishName).Skip((pageNum - 1) * pageSize).Take(pageSize).ToList();
+		}
+
+		public int GetProductsCount()
+		{
+			return db.Products.ToList().Count;
+		}
 	} 
 }
