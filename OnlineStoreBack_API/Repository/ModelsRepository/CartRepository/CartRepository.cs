@@ -141,11 +141,12 @@ namespace OnlineStoreBack_API.Repository
 			}
 			//order.ProductOrders = productOrders;
 			productOrderRepository.AddList(productOrders);// to let the inventory know
-			//order.TotalPrice = 0;
-			//foreach (var item in productOrders)
-			//{
-			//	order.TotalPrice += item.TotalPrice;
-			//}
+														  //order.TotalPrice = 0;
+			foreach (var item in productOrders)
+			{
+				order.TotalPrice += item.TotalPrice;
+			}
+			db.SaveChanges();
 			cart.TotalPrice = 0;
 
 		}

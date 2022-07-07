@@ -16,6 +16,7 @@ namespace OnlineStoreBack_API.Repository
 		//Get by Name sorting by Product English name and grouping by Product Category
 		public List<Product> GetPagenation(int pageNum, int pageSize,int?categoryId);
 		public int GetProductsCount();
+		public List<Product> GetAllByEnName(string EnglishName);
 
 		public List<Product> GetAllSortByEnName(string EnglishName);
 		//Get by CategoryId

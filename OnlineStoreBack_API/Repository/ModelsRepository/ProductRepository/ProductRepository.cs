@@ -19,6 +19,13 @@ namespace OnlineStoreBack_API.Repository
 			return Products;
 		}
 
+		public List<Product> GetAllByEnName(string EnglishName)
+		{
+			var Products = db.Products.OrderByDescending(x => x.EnglishName).Where(x => x.EnglishName.Contains(EnglishName)).ToList();
+			return Products;
+		}
+
+
 		public void DecreacInventorty(int id, int count)
 		{
 			var product = db.Products.FirstOrDefault(x => x.Id == id);

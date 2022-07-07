@@ -95,7 +95,7 @@ namespace OnlineStoreBack_API.Controllers
 		[Route("byname")]
 		public ActionResult<List<ProducReadtDTO>> GetbyName(string enName)
 		{
-			var res = productRepository.GetAllSortByEnName(enName);
+			var res = productRepository.GetAllByEnName(enName);
 			return productToDTO.changeToManyDTOs(res);
 		}
 
