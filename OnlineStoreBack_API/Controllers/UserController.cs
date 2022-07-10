@@ -63,16 +63,21 @@ namespace OnlineStoreBack_API.Controllers
 					new Claim(ClaimTypes.Role,"Customer")//Customer/Admin
 				};
 
-				await userManager.AddClaimsAsync(newUser, userClaims);
 
-				var cart = new Cart { TotalPrice = 0, UserId = newUser.Id };//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Is that Wrong
+				var claimsRes = await userManager.AddClaimsAsync(newUser, userClaims);
 
+				if (!claimsRes.Succeeded)
+				{
+					await userManager.DeleteAsync(newUser);
+					return BadRequest(claimsRes.Errors);
+				}
+
+				var cart = new Cart { TotalPrice = 0, UserId = newUser.Id };
+				 
 				db.Carts.Add(cart);
 				db.SaveChanges();
 
-
-
-				return Ok("done");
+				return StatusCode(StatusCodes.Status201Created,"User Created Succesfully");
 			}
 			return BadRequest(ModelState.ErrorCount);
 
@@ -89,7 +94,7 @@ namespace OnlineStoreBack_API.Controllers
 			var user = await userManager.FindByNameAsync(credentials.UserName);
 			if (user == null)
 			{
-				return BadRequest();
+				return BadRequest("No User Found");
 			}
 			if (await userManager.IsLockedOutAsync(user))
 			{

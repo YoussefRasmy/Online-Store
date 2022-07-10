@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 #region Cors
 
-var Policy = "Hamaada";
+var Policy = "Hamaada"; 
 builder.Services.AddCors(options =>
 {
 	options.AddPolicy(Policy, builder =>
@@ -56,6 +56,8 @@ builder.Services.AddIdentity<StoreUser, IdentityRole>(options =>
 	options.Password.RequiredLength = 5;
 	options.Lockout.MaxFailedAccessAttempts = 3;
 	options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
+	options.User.RequireUniqueEmail = true;//added new
+	
 }).AddEntityFrameworkStores<OnlineStoreContext>();
 #endregion
 
