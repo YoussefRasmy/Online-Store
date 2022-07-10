@@ -123,7 +123,7 @@ namespace OnlineStoreBack_API.Repository
 
 		}
 
-		public void TransfairToOrder(string address, DateTime deliverDate, Cart cart,int _paymentMethod)
+		public int TransfairToOrder(string address, DateTime deliverDate, Cart cart,int _paymentMethod)
 		{
 			//var cart = GetByCurrerntUserId();
 			var order = new Order { Address = address, UserId = cart.UserId, PaymentMethod = (PaymentMethod)_paymentMethod,  Order_Date = DateTime.Now, Deliver_Date = deliverDate, TotalPrice=cart.TotalPrice };
@@ -148,6 +148,7 @@ namespace OnlineStoreBack_API.Repository
 			}
 			db.SaveChanges();
 			cart.TotalPrice = 0;
+			return order.Id;
 
 		}
 	}

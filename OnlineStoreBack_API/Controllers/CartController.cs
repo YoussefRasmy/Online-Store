@@ -128,7 +128,7 @@ namespace OnlineStoreBack_API.Controllers
 		[HttpPost]
 		// POST api/<CartController>
 		[Route("cartToOrder")]
-		public async Task<IActionResult> TransfairToOrder([FromBody] OrderInfoWriteDTO orderInfoDTO)//.......string userId....>>>>>>>> somthing is wrong
+		public async Task<ActionResult<int>> TransfairToOrder([FromBody] OrderInfoWriteDTO orderInfoDTO)//.......string userId....>>>>>>>> somthing is wrong
 		{
 			if (ModelState.IsValid)
 			{
@@ -137,9 +137,9 @@ namespace OnlineStoreBack_API.Controllers
 
 				var currentUserCart = await cartService.GetUserCart(User);
 				if (currentUserCart == null)BadRequest();
-				cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress, orderInfoDTO.DeliverDate, currentUserCart, orderInfoDTO.PaymentMethod);
+				var orderId = cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress, orderInfoDTO.DeliverDate, currentUserCart, orderInfoDTO.PaymentMethod);
 				productCartRepository.ClearCart(currentUserCart.Id);
-				return Ok();
+				return orderId;
 			}
 
 			return BadRequest();
