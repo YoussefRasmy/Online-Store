@@ -75,7 +75,7 @@ namespace OnlineStoreBack_API.Repository
 				price += cartProduct.TotalPrice;
 			}
 			cart.TotalPrice = price;
-
+			db.SaveChanges();
 
 		}
 
@@ -91,15 +91,7 @@ namespace OnlineStoreBack_API.Repository
 		{
 
 			var cart = db.Carts.Include(x => x.ProductCarts).FirstOrDefault(x => x.UserId == userId);
-			if (cart.ProductCarts != null)
-			{
-				//cart.TotalPrice = 0;
-				//foreach (var item in cart.ProductCarts)
-				//{
-				//	cart.TotalPrice += item.TotalPrice;
-				//}
-				//CalculateCart(cart);
-			}
+			
 			return cart;
 		}
 
@@ -111,7 +103,6 @@ namespace OnlineStoreBack_API.Repository
 				if (productCart.Quantity > 1)
 				{
 					productCart.Quantity--;
-					//productCart.TotalPrice -= db.Products.FirstOrDefault(x => x.Id == productCart.ProductId).Price;
 				}
 				else if (productCart.Quantity == 1)
 				{
@@ -132,21 +123,22 @@ namespace OnlineStoreBack_API.Repository
 			
 
 			List<ProductOrder> productOrders = new List<ProductOrder>();
+
 			var productCarts = productCartRepository.GetAllByCartId(cart.Id);
-			foreach (var item in productCarts)//this is wrong get it from its repo
+
+			foreach (var item in productCarts)
 			{
 				productOrders.Add(new ProductOrder { OrderId = order.Id, ProductId = item.ProductId, Quantity = item.Quantity, TotalPrice = item.TotalPrice });//+TotalPrice = item.TotalPrice
-				///---------------------------------------
-
 			}
-			//order.ProductOrders = productOrders;
-			productOrderRepository.AddList(productOrders);// to let the inventory know
-														  //order.TotalPrice = 0;
+			
+			productOrderRepository.AddList(productOrders);
 			foreach (var item in productOrders)
 			{
 				order.TotalPrice += item.TotalPrice;
 			}
+
 			db.SaveChanges();
+
 			cart.TotalPrice = 0;
 			return order.Id;
 

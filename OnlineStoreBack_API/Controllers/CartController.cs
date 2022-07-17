@@ -49,8 +49,9 @@ namespace OnlineStoreBack_API.Controllers
 			List<ProductCartDTOOutput> products = new List<ProductCartDTOOutput>();
 
 			var cartProducts = productCartRepository.GetAllByCartId(currentUserCart.Id);
-			var userId = await userSevice.GetUserId(User);
 
+
+			//could be better???
 			foreach (var item in cartProducts)
 			{
 				products.Add(new ProductCartDTOOutput
@@ -68,12 +69,6 @@ namespace OnlineStoreBack_API.Controllers
 			return products;
 		}
 
-		// GET api/<CartController>/5
-		//[HttpGet("{id}")]
-		//public ActionResult<Cart> Get(int id)
-		//{
-		//	return cartRepository.GetById(id);
-		//}
 
 		#endregion
 
@@ -81,20 +76,20 @@ namespace OnlineStoreBack_API.Controllers
 
 		// POST api/<CartController>
 		[HttpPost]
-		public async Task<IActionResult> AddToCart([FromBody] ProductCartDTOInput productCart)//.....,string userid......>>>>>>>> somthing is wrong
+		public async Task<IActionResult> AddToCart([FromBody] ProductCartDTOInput productCart)
 		{
-			//0006da07-2451-4a69-94f2-2acce36a8278
-			
+
+
 			var currentUserCart = await cartService.GetUserCart(User);
 			var newProductCart = new ProductCart { CartId = currentUserCart.Id, ProductId = productCart.ProductId, Quantity = productCart.Quantity };
-			cartRepository.AddToCart(newProductCart);//// first time it givs me 2 then the second 1 then 0 so what is going on ??
-			
-				
-			
+			cartRepository.AddToCart(newProductCart);//// first time it givs me 2 then the second 1 then 0 so what is going on ?? فاثقث هس
+
+
+
 			return Ok();
 		}
 
-		#endregion
+		#endregion//need anthor look
 
 		#region add List
 
@@ -103,21 +98,15 @@ namespace OnlineStoreBack_API.Controllers
 		public async Task<IActionResult> Put(List<ProductCartDTOInput> productCartDTOs)
 		{
 
-
-			//var userId = await userSevice.GetUserId(User);0006da07-2451-4a69-94f2-2acce36a8278
 			var currentUserCart = await cartService.GetUserCart(User);
 
 			productCartRepository.ClearCart(currentUserCart.Id);
 
 			productCartDTOs.ForEach(x =>
 				{
-
 					cartRepository.AddToCart(new ProductCart { CartId = currentUserCart.Id, ProductId = x.ProductId, Quantity = x.Quantity });
-
-				}
-				);
+				});
 			return Ok();
-
 
 		}
 
@@ -132,11 +121,8 @@ namespace OnlineStoreBack_API.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				//var userId = await userSevice.GetUserId(User);
-				//var currentUserCart = cartRepository.GetBytUserId(userId);
-
 				var currentUserCart = await cartService.GetUserCart(User);
-				if (currentUserCart == null)BadRequest();
+				if (currentUserCart == null) BadRequest();
 				var orderId = cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress, orderInfoDTO.DeliverDate, currentUserCart, orderInfoDTO.PaymentMethod);
 				productCartRepository.ClearCart(currentUserCart.Id);
 				return orderId;
@@ -148,19 +134,18 @@ namespace OnlineStoreBack_API.Controllers
 
 		#endregion
 
-
 		#region DeleteOne
 		//Delete one product from the cart
 		// GET: api/<CartController>
 		[HttpDelete]
 		[Route("DeleteOne")]
-		public async Task< IActionResult> DeleteOne(int productId)
+		public async Task<IActionResult> DeleteOne(int productId)
 		{
 			//var user = await userManager.GetUserAsync(User);
 			//var userId = await userManager.GetUserIdAsync(user);
 			//var currentUserCart = cartRepository.GetBytUserId(userId);
 			var product = productRepository.GetById(productId);
-			if (product!= null)
+			if (product != null)
 			{
 				var currentUserCart = await cartService.GetUserCart(User);
 				var productCart = productCartRepository.GetById(currentUserCart.Id, productId);
@@ -182,13 +167,10 @@ namespace OnlineStoreBack_API.Controllers
 		[Route("DeleteAll")]
 		public async Task<IActionResult> DeleteAll()
 		{
-			//var user = await userManager.GetUserAsync(User);
-			//var userId = await userManager.GetUserIdAsync(user);
-			//var currentUserCart = cartRepository.GetBytUserId(userId);
 			var currentUserCart = await cartService.GetUserCart(User);
 			productCartRepository.ClearCart(currentUserCart.Id);
 			return Ok();
-			}
+		}
 		#endregion
 
 	}

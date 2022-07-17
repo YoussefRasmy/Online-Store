@@ -47,6 +47,12 @@ namespace OnlineStoreBack_API.Controllers
 				{
 					return BadRequest("User Alredy Exest");
 				}
+				var emailExest = await userManager.FindByEmailAsync(newUser.Email);
+
+				if (emailExest != null)
+				{
+					return BadRequest("User Alredy Exest");
+				}
 				var creationRes = await userManager.CreateAsync(newUser, registerDTO.Password);
 
 				if (!creationRes.Succeeded)
@@ -89,12 +95,12 @@ namespace OnlineStoreBack_API.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				return BadRequest("Wrong Credentials");
+				return BadRequest("Wrong Cradentials");
 			}
 			var user = await userManager.FindByNameAsync(credentials.UserName);
 			if (user == null)
 			{
-				return BadRequest("No User Found");
+				return BadRequest("Wrong User Name or Password");
 			}
 			if (await userManager.IsLockedOutAsync(user))
 			{

@@ -109,6 +109,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IVendorRepository, VendorRepository>();
 builder.Services.AddScoped<IProductToDTO, ProductToDTO>();
+builder.Services.AddScoped<ICategoryToDTO, CategoryToDTO>();
+builder.Services.AddScoped<IOrderToDTO, OrderToDTO>();
 
 #endregion
 

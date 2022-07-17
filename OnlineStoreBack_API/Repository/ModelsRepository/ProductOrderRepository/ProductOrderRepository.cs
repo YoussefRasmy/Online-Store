@@ -59,7 +59,7 @@ namespace OnlineStoreBack_API.Repository
 
 		public void Update(ProductOrder productOrder)
 		{
-			throw new NotImplementedException();
+			db.SaveChanges();
 		}
 
 	}

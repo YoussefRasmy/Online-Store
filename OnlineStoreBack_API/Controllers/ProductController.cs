@@ -149,12 +149,11 @@ namespace OnlineStoreBack_API.Controllers
 			{
 				var product = productToDTO.changeToOneProduct(_product);
 				productRepository.Add(product);
-				return Ok();
+				return StatusCode(StatusCodes.Status201Created);
 			}
-			else
-			{
+			
 				return BadRequest("some thing wrong with the model");
-			}
+			
 		}
 		#endregion
 

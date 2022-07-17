@@ -13,7 +13,7 @@ namespace OnlineStoreBack_API.Repository
 		}
 
 
-		// Product Category (required, displays list of Sub‐categories only or Parent Categories which don’t 
+		
 		public List<Category> GetByName(string categoryName)
 		{
 
@@ -21,6 +21,13 @@ namespace OnlineStoreBack_API.Repository
 			return res;
 		}
 
+		public List<Category> GetParentCategoryOnly()
+		{
+			var res = db.Categories.Where(x => !db.Products.Select(c => c.CategoryId).Contains(x.Id)).ToList();
+			
+			return res;
+		}
+		// Product Category (required, displays list of Sub‐categories only or Parent Categories which don’t have sup category undernees 
 		public List<Category> GetSupAndParentOnly()
 		{
 			var res = db.Categories.Where(x => !db.Categories.Select(c => c.ParentCategoryId).Contains(x.Id)).ToList();
@@ -28,5 +35,6 @@ namespace OnlineStoreBack_API.Repository
 			return res;
 
 		}
+
 	}
 }

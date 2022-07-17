@@ -35,6 +35,7 @@ public class GenericRepository<TEntity, TID> : IGenericRepository<TEntity, TID>
 		return _context.Set<TEntity>().ToList();
 	}
 
+
 	public TEntity GetById(TID id)
 	{
 		var res = _context.Set<TEntity>().Find(id);
