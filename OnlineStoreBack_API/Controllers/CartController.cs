@@ -70,6 +70,38 @@ namespace OnlineStoreBack_API.Controllers
 		}
 
 
+
+		//// GET: api/<CartController>
+		//[HttpGet]
+		//[Route("one")]
+		////some change will happen here i will return list<ProductCartDTOOutput> insted of cartReadDTO
+		//public async Task<ActionResult<ProductCartDTOOutput>> GetOne()
+		//{
+
+		//	var currentUserCart = await cartService.GetUserCart(User);
+		//	List<ProductCartDTOOutput> products = new List<ProductCartDTOOutput>();
+
+		//	var cartProducts = productCartRepository.GetAllByCartId(currentUserCart.Id);
+
+
+		//	//could be better???
+		//	foreach (var item in cartProducts)
+		//	{
+		//		products.Add(new ProductCartDTOOutput
+		//		{
+		//			Quantity = item.Quantity,
+		//			_Product = productToDTO.changeToOneDTO(productRepository.GetById(item.ProductId))
+		//		});
+		//	}
+
+
+		//	//var cartProducts
+		//	//var cartReadDTO = new cartReadDTO { Id = currentUserCart.Id, UserId = userId, Products = products };
+
+
+		//	return products[0];
+		//}
+
 		#endregion
 
 		#region Add One
@@ -121,11 +153,20 @@ namespace OnlineStoreBack_API.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+
 				var currentUserCart = await cartService.GetUserCart(User);
 				if (currentUserCart == null) BadRequest();
-				var orderId = cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress, orderInfoDTO.DeliverDate, currentUserCart, orderInfoDTO.PaymentMethod);
+				string errorMessage ="";
+				var orderId = cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress, orderInfoDTO.DeliverDate, currentUserCart, orderInfoDTO.PaymentMethod,ref errorMessage);
+				if (errorMessage != "")
+				{
+					return BadRequest(errorMessage);
+				}
+				
+				
 				productCartRepository.ClearCart(currentUserCart.Id);
 				return orderId;
+
 			}
 
 			return BadRequest();

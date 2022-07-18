@@ -114,7 +114,7 @@ namespace OnlineStoreBack_API.Repository
 
 		}
 
-		public int TransfairToOrder(string address, DateTime deliverDate, Cart cart,int _paymentMethod)
+		public int TransfairToOrder(string address, DateTime deliverDate, Cart cart,int _paymentMethod,ref string errorMessage)
 		{
 			//var cart = GetByCurrerntUserId();
 			var order = new Order { Address = address, UserId = cart.UserId, PaymentMethod = (PaymentMethod)_paymentMethod,  Order_Date = DateTime.Now, Deliver_Date = deliverDate, TotalPrice=cart.TotalPrice };
@@ -125,9 +125,16 @@ namespace OnlineStoreBack_API.Repository
 			List<ProductOrder> productOrders = new List<ProductOrder>();
 
 			var productCarts = productCartRepository.GetAllByCartId(cart.Id);
+			
 
 			foreach (var item in productCarts)
 			{
+				var product = productRepository.GetById(item.ProductId);
+				if (product.Quantity<item.Quantity)
+				{
+					errorMessage = "some Item in your cart are not availaple anymore";
+					return -1;
+				}
 				productOrders.Add(new ProductOrder { OrderId = order.Id, ProductId = item.ProductId, Quantity = item.Quantity, TotalPrice = item.TotalPrice });//+TotalPrice = item.TotalPrice
 			}
 			
