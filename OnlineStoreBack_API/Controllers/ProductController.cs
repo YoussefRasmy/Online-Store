@@ -83,7 +83,7 @@ namespace OnlineStoreBack_API.Controllers
 
 			var ProductsDTO = productToDTO.changeToManyDTOs(Products);
 
-			ProductsDTO= ProductsDTO.OrderBy(x=>x.Category.Id ).OrderBy(x=>x.EnglishName).ToList();
+			ProductsDTO= ProductsDTO.OrderBy(x=>x.Category.Id ).ToList();
 
 			return ProductsDTO;
 

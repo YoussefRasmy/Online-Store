@@ -66,7 +66,7 @@ namespace OnlineStoreBack_API.Controllers
 				{
 					new Claim(ClaimTypes.NameIdentifier, newUser.UserName),
 					new Claim(ClaimTypes.Email, newUser.Email),
-					new Claim(ClaimTypes.Role,"Admin")//Customer/Admin
+					new Claim(ClaimTypes.Role,"Customer")//Customer/Admin
 				};
 
 

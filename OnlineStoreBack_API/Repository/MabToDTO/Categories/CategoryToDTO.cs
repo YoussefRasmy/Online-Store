@@ -16,7 +16,7 @@ public class CategoryToDTO : ICategoryToDTO
 		List<CategoryDetailsDTO> list = new List<CategoryDetailsDTO>();
 		foreach (var item in categories)
 		{
-			if (item.Id == 7)
+			if (item.Name == "Other")
 			{
 				continue;
 			}
