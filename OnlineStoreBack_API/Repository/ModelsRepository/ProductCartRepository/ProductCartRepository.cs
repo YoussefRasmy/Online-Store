@@ -33,7 +33,8 @@ namespace OnlineStoreBack_API.Repository
 		{
 			var productCarts = GetAllByCartId(cartId);
 			db.CartProducts.RemoveRange(productCarts);
-			//var cart = db.Carts.FirstOrDefault(c => c.Id == cartId);
+			var cart = db.Carts.FirstOrDefault(c => c.Id == cartId);
+			cart.TotalPrice = 0;
 			
 			db.SaveChanges();
 			
@@ -44,7 +45,11 @@ namespace OnlineStoreBack_API.Repository
 			var productCart = db.CartProducts.FirstOrDefault(x=>x.CartId == cartId && x.ProductId == productId);
 			if (productCart != null)
 			{
+				
 				db.CartProducts.Remove(productCart);
+				var cart = db.Carts.FirstOrDefault(c => c.Id == cartId);
+				cart.TotalPrice -= productCart.TotalPrice;
+				
 				db.SaveChanges();
 
 			}

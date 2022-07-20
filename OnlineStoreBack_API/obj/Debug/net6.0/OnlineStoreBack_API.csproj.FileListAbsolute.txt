@@ -141,3 +141,9 @@ C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Ass
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\fcffef29-3707-4159-913b-f24d2eb493a4_Caseein Protien.jpg
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\fdbe90f3-f21c-4362-a48a-0eab7a5ff257_Caseein Protien.jpg
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\fe1cec35-7c43-4453-a3d1-f3c7818b5dab_Caseein Protien.jpg
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\9683f88d-907a-49b2-aceb-34f29c11e98a_laptop-1200x720.png
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\9c8654d9-369c-4154-9e66-e5751b0390a5_Mango.jpg
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\e768f5f5-cd00-402f-a14e-0de706e0b1ea_images.jpg
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\16ce5280-70d1-4fd9-a2c7-cad9950f9f27_1200px-Playing_card_spade_A.svg.png
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\54125aee-de80-4479-a4b8-c08863aa86b8_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\a7e79a2e-ebbe-45c3-9af1-10cd7cc543f4_1200px-Playing_card_spade_A.svg.png

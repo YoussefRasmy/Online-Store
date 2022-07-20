@@ -128,7 +128,7 @@ namespace OnlineStoreBack_API.Controllers
 
 		// PUT api/<CartController>/5
 		[HttpPut]
-		public async Task<IActionResult> Put(List<ProductCartDTOInput> productCartDTOs)
+		public async Task<IActionResult> Put(List<ProductCartDTOInput> productCartDTOs)//product cart dtos get error
 		{
 
 			var currentUserCart = await cartService.GetUserCart(User);

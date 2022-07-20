@@ -47,11 +47,12 @@ namespace OnlineStoreBack_API.Repository
 			}
 			else
 			{
-				if (product.Quantity >= productCart.Quantity)
+				if (product.Quantity >= 1 && product.Quantity >= productCart.Quantity )
 				{
-					db.CartProducts.Add(productCart);
-					
 					//productRepository.DecreacInventorty(productCart.ProductId, productCart.Quantity);
+					
+					db.CartProducts.Add(productCart);
+					db.SaveChanges();
 					productCartRepository.CalculatePrice(productCart);
 					
 				}
@@ -64,11 +65,11 @@ namespace OnlineStoreBack_API.Repository
 			return x;
 
 		}
-
-		public void CalculateCart(Cart cart)
+		 
+		public  void CalculateCart(Cart cart)
 		{
 
-			var cartProducts = db.CartProducts.Where(x => x.CartId == cart.Id).ToList();
+			var cartProducts =  db.CartProducts.Where(x => x.CartId == cart.Id).ToList();// the error is here // it didn't get any thing when it was the first call 
 			double price = 0;
 			foreach (var cartProduct in cartProducts)
 			{
@@ -130,7 +131,7 @@ namespace OnlineStoreBack_API.Repository
 			foreach (var item in productCarts)
 			{
 				var product = productRepository.GetById(item.ProductId);
-				if (product.Quantity<item.Quantity)
+				if (product.Quantity < item.Quantity)
 				{
 					errorMessage = "some Item in your cart are not availaple anymore";
 					return -1;
@@ -139,10 +140,10 @@ namespace OnlineStoreBack_API.Repository
 			}
 			
 			productOrderRepository.AddList(productOrders);
-			foreach (var item in productOrders)
-			{
-				order.TotalPrice += item.TotalPrice;
-			}
+			//foreach (var item in productOrders)
+			//{
+			//	order.TotalPrice += item.TotalPrice;
+			//}
 
 			db.SaveChanges();
 
