@@ -4,6 +4,6 @@
 	{
 		public int PaymentMethod { get; set; }
 		public string DeliveryAddress { get; set; }
-		public DateTime DeliverDate { get; set; }
+		//public DateTime DeliverDate { get; set; }
 	}
 }

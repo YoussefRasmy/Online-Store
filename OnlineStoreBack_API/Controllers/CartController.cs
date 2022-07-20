@@ -157,7 +157,8 @@ namespace OnlineStoreBack_API.Controllers
 				var currentUserCart = await cartService.GetUserCart(User);
 				if (currentUserCart == null) BadRequest();
 				string errorMessage ="";
-				var orderId = cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress, orderInfoDTO.DeliverDate, currentUserCart, orderInfoDTO.PaymentMethod,ref errorMessage);
+				//var orderId = cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress, orderInfoDTO.DeliverDate, currentUserCart, orderInfoDTO.PaymentMethod,ref errorMessage);
+				var orderId = cartRepository.TransfairToOrder(orderInfoDTO.DeliveryAddress,currentUserCart, orderInfoDTO.PaymentMethod,ref errorMessage);
 				if (errorMessage != "")
 				{
 					return BadRequest(errorMessage);

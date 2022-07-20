@@ -210,9 +210,6 @@ namespace OnlineStoreBack_API.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Deliver_Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime>("Order_Date")
                         .HasColumnType("datetime2");
 

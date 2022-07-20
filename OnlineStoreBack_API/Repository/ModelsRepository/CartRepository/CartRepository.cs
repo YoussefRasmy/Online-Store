@@ -114,10 +114,10 @@ namespace OnlineStoreBack_API.Repository
 
 		}
 
-		public int TransfairToOrder(string address, DateTime deliverDate, Cart cart,int _paymentMethod,ref string errorMessage)
+		public int TransfairToOrder(string address, Cart cart,int _paymentMethod,ref string errorMessage)
 		{
 			//var cart = GetByCurrerntUserId();
-			var order = new Order { Address = address, UserId = cart.UserId, PaymentMethod = (PaymentMethod)_paymentMethod,  Order_Date = DateTime.Now, Deliver_Date = deliverDate, TotalPrice=cart.TotalPrice };
+			var order = new Order { Address = address, UserId = cart.UserId, PaymentMethod = (PaymentMethod)_paymentMethod,  Order_Date = DateTime.Now, TotalPrice=cart.TotalPrice };
 
 			orderRepository.Add(order);
 			

@@ -52,8 +52,5 @@ namespace OnlineStoreBack_API.Controllers
             return Ok(new UploadFileResponse(UploadFileResponseCodes.Success, fullAccessibleImageURL));
         }
 
-
-
-
     }
 }
