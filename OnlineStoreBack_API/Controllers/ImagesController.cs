@@ -26,7 +26,7 @@ namespace OnlineStoreBack_API.Controllers
 
             var file = filesInRequest[0];
 
-            var allowedExtensions = new string[] { ".jpg", ".svg", ".png" };
+            var allowedExtensions = new string[] { ".jpg", ".svg", ".png", ".gif", ".BMP" };
             if (!allowedExtensions.Any(ext => file.FileName.EndsWith(ext, StringComparison.InvariantCultureIgnoreCase)))
             {
                 return BadRequest(new UploadFileResponse(UploadFileResponseCodes.WrongExtension));
@@ -41,7 +41,12 @@ namespace OnlineStoreBack_API.Controllers
                 return BadRequest(new UploadFileResponse(UploadFileResponseCodes.EmptyFile));
             }
 
-            var fileName = $"{Guid.NewGuid()}_{file.FileName}";
+			if (file.Length > 100_00_00)
+			{
+				return BadRequest(new UploadFileResponse(UploadFileResponseCodes.EmptyFile));
+			}
+
+			var fileName = $"{Guid.NewGuid()}_{file.FileName}";
 
             var fullPathToSave = Path.Combine(fullFolderPath, fileName);
 
