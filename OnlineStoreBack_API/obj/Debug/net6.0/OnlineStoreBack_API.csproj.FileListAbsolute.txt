@@ -147,3 +147,9 @@ C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Ass
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\16ce5280-70d1-4fd9-a2c7-cad9950f9f27_1200px-Playing_card_spade_A.svg.png
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\54125aee-de80-4479-a4b8-c08863aa86b8_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
 C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\a7e79a2e-ebbe-45c3-9af1-10cd7cc543f4_1200px-Playing_card_spade_A.svg.png
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\6456c42e-4a00-412b-a690-6387ac87f4da_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\54f6e262-48ca-4901-a271-66da001912fe_106793228_169529861245171_927888518303198833_n.jpg
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\631f1104-5f4e-4c37-9490-89dc7ac9abd7_74175598_168475538017270_379764123651124093_n.jpg
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\7e41a20e-85f2-43bd-8f8c-b959c3e4711b_416QwgkTcES.__AC_SX300_SY300_QL70_ML2_.jpg
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\98dde015-7367-4ffe-9dae-c559c371821c_61sHtquTTwL.__AC_SX300_SY300_QL70_ML2_.jpg
+C:\JOE\LINK_TASK\1st-TRY\OnlineStoreSLN\OnlineStoreBack_API\bin\Debug\net6.0\Assets\Images\b30f4dc4-812c-46b5-b58f-35c5eb4a5051_41C7y+bwaEL._AC_SY300_SX300_.jpg

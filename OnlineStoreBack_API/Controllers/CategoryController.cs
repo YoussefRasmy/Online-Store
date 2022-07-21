@@ -181,9 +181,10 @@ namespace OnlineStoreBack_API.Controllers
 
 		// DELETE api/<CategoryController>/5
 		[HttpDelete("{id}")]
-		public void Delete(int id)
+		public ActionResult Delete(int id)
 		{
 			categoryRepository.Delete(id);
+			return Ok();
 		}
 	}
 }

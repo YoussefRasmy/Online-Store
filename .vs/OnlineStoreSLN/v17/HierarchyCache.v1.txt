@@ -1,0 +1,478 @@
+﻿++Solution 'OnlineStoreSLN' ‎(1 of 1 project)
+i:{00000000-0000-0000-0000-000000000000}:OnlineStoreSLN.sln
+++OnlineStoreBack_API
+i:{00000000-0000-0000-0000-000000000000}:OnlineStoreBack_API
+++Connected Services 
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>875
+++Dependencies
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>874
+++Properties
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\properties\
+++Assets
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\
+++Controllers
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\controllers\
+++CartController.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\controllers\cartcontroller.cs
+++CategoryController.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\controllers\categorycontroller.cs
+++ImagesController.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\controllers\imagescontroller.cs
+++OrderController.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\controllers\ordercontroller.cs
+++ProductController.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\controllers\productcontroller.cs
+++UserController.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\controllers\usercontroller.cs
+++vendorController.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\controllers\vendorcontroller.cs
+++WeatherForecastController.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\controllers\weatherforecastcontroller.cs
+++Data
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\
+++Context
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\context\
+++Models
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\models\
+++Cart.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\models\cart.cs
+++Category.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\models\category.cs
+++Order.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\models\order.cs
+++Product.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\models\product.cs
+++ProductCart.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\models\productcart.cs
+++ProductOrder.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\models\productorder.cs
+++StoreUser.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\models\storeuser.cs
+++Vendor.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\models\vendor.cs
+++DTO
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\
+++Migrations
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\
+++Repository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\
+++GenericRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\genericrepository\
+++GenericRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\genericrepository\genericrepository.cs
+++IGenericRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\genericrepository\igenericrepository.cs
+++MabToDTO
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\
+++Categories
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\categories\
+++Orders
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\orders\
+++Products
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\products\
+++ModelsRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\
+++Services
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\services\
+++appsettings.json
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\appsettings.json
+++Program.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\program.cs
+++WeatherForecast.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\weatherforecast.cs
+++No service dependencies discovered
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>876
+++Analyzers
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:analyzers
+++Frameworks
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:frameworks
+++Packages
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:packages
+++launchSettings.json
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\properties\launchsettings.json
+++Images
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\
+++OnlineStoreContext.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\data\context\onlinestorecontext.cs
+++Authentication
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\authentication\
+++ImgDTO
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\imgdto\
+++ModelsDTO
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\
+++20220624181655_IntialOnlineStoreDB.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220624181655_intialonlinestoredb.cs
+++20220624185840_UpdateTheUser.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220624185840_updatetheuser.cs
+++20220624194142_UpdateTheUser_Address_Name.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220624194142_updatetheuser_address_name.cs
+++20220624233329_TableFirstWave.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220624233329_tablefirstwave.cs
+++20220626212726_fenish_modles.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220626212726_fenish_modles.cs
+++20220628161343_tryTosolve.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220628161343_trytosolve.cs
+++20220702084219_HandlToMatchFront.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220702084219_handltomatchfront.cs
+++20220703230033_ProductCartTotalPrice.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220703230033_productcarttotalprice.cs
+++20220704175424_updateOrder.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220704175424_updateorder.cs
+++20220720084802_Remove_Deliver_Date_From_Order.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220720084802_remove_deliver_date_from_order.cs
+++OnlineStoreContextModelSnapshot.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\onlinestorecontextmodelsnapshot.cs
+++CategoryToDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\categories\categorytodto.cs
+++ICategoryToDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\categories\icategorytodto.cs
+++IOrderToDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\orders\iordertodto.cs
+++OrderToDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\orders\ordertodto.cs
+++IProductOrderToDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\products\iproductordertodto.cs
+++IProductToDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\products\iproducttodto.cs
+++ProductOrderToDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\products\productordertodto.cs
+++ProductToDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\mabtodto\products\producttodto.cs
+++CartRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\cartrepository\
+++CategoryRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\categoryrepository\
+++OrderRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\orderrepository\
+++ProductCartRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\productcartrepository\
+++ProductOrderRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\productorderrepository\
+++ProductRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\productrepository\
+++UserRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\userrepository\
+++VendorRepository
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\vendorrepository\
+++Cart
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\services\cart\
+++User
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\services\user\
+++appsettings.Development.json
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\appsettings.development.json
+++Microsoft.AspNetCore.Analyzers
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.5\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.5\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.SourceGenerator.Tooling.Internal
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.sourcegenerator.tooling.internal.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\users\pc\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.6\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.5\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+++System.Text.Json.SourceGeneration
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.5\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.AspNetCore.App
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\microsoft.aspnetcore.app
+++Microsoft.NETCore.App
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\microsoft.netcore.app
+++Microsoft.AspNetCore.Authentication.JwtBearer (6.0.6)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>895
+++Microsoft.AspNetCore.Cors (2.2.0)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>892
+++Microsoft.AspNetCore.Identity (2.2.0)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>891
+++Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.6)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>893
+++Microsoft.EntityFrameworkCore (6.0.6)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>887
+++Microsoft.EntityFrameworkCore.SqlServer (6.0.6)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>888
+++Microsoft.EntityFrameworkCore.Tools (6.0.6)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>897
+++Microsoft.IdentityModel.Tokens (6.20.0)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>896
+++Swashbuckle.AspNetCore (6.2.3)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>890
+++System.Configuration.ConfigurationManager (6.0.0)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>894
+++System.IdentityModel.Tokens.Jwt (6.20.0)
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:>889
+++0009aa7b-7ff2-40eb-b0a1-3124046421cd_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\0009aa7b-7ff2-40eb-b0a1-3124046421cd_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+++007aef1b-8576-460a-b6db-984440c0a3cb_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\007aef1b-8576-460a-b6db-984440c0a3cb_caseein protien.jpg
+++02da91a0-5c1e-4730-9943-84a3db000eb6_Productos-Naranja-Sunrisefruitscompany.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\02da91a0-5c1e-4730-9943-84a3db000eb6_productos-naranja-sunrisefruitscompany.jpg
+++030c36ef-f551-4236-a4c1-d30bc45bae21_Mango.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\030c36ef-f551-4236-a4c1-d30bc45bae21_mango.jpg
+++059644cb-7e85-4cb2-8da0-5438c4a3c3cf_Glutamine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\059644cb-7e85-4cb2-8da0-5438c4a3c3cf_glutamine.jpg
+++16ce5280-70d1-4fd9-a2c7-cad9950f9f27_1200px-Playing_card_spade_A.svg.png
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\16ce5280-70d1-4fd9-a2c7-cad9950f9f27_1200px-playing_card_spade_a.svg.png
+++172ecc62-cde2-48d8-8196-f44890d39571_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\172ecc62-cde2-48d8-8196-f44890d39571_caseein protien.jpg
+++17b1f4c5-7073-4b5e-ac06-9db8f56a0c95_Bananas-5c6a36a346e0fb0001f0e4a3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\17b1f4c5-7073-4b5e-ac06-9db8f56a0c95_bananas-5c6a36a346e0fb0001f0e4a3.jpg
+++181f84af-508f-4026-8cf0-61309a6bf497_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\181f84af-508f-4026-8cf0-61309a6bf497_caseein protien.jpg
+++1c5d05e5-384a-41ee-a31e-59b920c4303e_1200px-Playing_card_spade_A.svg.png
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\1c5d05e5-384a-41ee-a31e-59b920c4303e_1200px-playing_card_spade_a.svg.png
+++243fea2c-d1c1-4c4a-8d82-557e454760af_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\243fea2c-d1c1-4c4a-8d82-557e454760af_caseein protien.jpg
+++2978681d-6c34-484a-9f6f-965f98b73f7c_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\2978681d-6c34-484a-9f6f-965f98b73f7c_caseein protien.jpg
+++2f12513e-4b7f-4913-8c3b-5241862870b3_Creatine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\2f12513e-4b7f-4913-8c3b-5241862870b3_creatine.jpg
+++3181dc68-6aca-4fe0-a14b-2be6880d6a02_Egg Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\3181dc68-6aca-4fe0-a14b-2be6880d6a02_egg protien.jpg
+++33f9dc11-1b5a-4f3a-a88f-c87f918728f5_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\33f9dc11-1b5a-4f3a-a88f-c87f918728f5_caseein protien.jpg
+++3c2531e2-e091-4682-97ef-68468d4720d7_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\3c2531e2-e091-4682-97ef-68468d4720d7_caseein protien.jpg
+++45d4d056-828d-46b4-a1ba-f8de116845cf_Egg Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\45d4d056-828d-46b4-a1ba-f8de116845cf_egg protien.jpg
+++48b0ee6c-07c8-4081-9166-3da3303c456c_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\48b0ee6c-07c8-4081-9166-3da3303c456c_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+++534d69a1-2a60-48e6-b113-32fc9d9e7385_Bananas-5c6a36a346e0fb0001f0e4a3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\534d69a1-2a60-48e6-b113-32fc9d9e7385_bananas-5c6a36a346e0fb0001f0e4a3.jpg
+++54125aee-de80-4479-a4b8-c08863aa86b8_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\54125aee-de80-4479-a4b8-c08863aa86b8_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+++56a8b752-beb1-4f71-8456-2cd86bf0efa1_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\56a8b752-beb1-4f71-8456-2cd86bf0efa1_caseein protien.jpg
+++57b43452-af4e-4cac-a25a-ba661f47d677_Whey Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\57b43452-af4e-4cac-a25a-ba661f47d677_whey protien.jpg
+++59d5c4bb-58cd-4aae-94d0-bff013f52a63_Creatine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\59d5c4bb-58cd-4aae-94d0-bff013f52a63_creatine.jpg
+++5ad5b28a-918e-4964-bdc1-92f4ecd879b7_Malto Dextrin.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\5ad5b28a-918e-4964-bdc1-92f4ecd879b7_malto dextrin.jpg
+++5e198a71-24dc-4690-95d0-0378c69acc7c_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\5e198a71-24dc-4690-95d0-0378c69acc7c_caseein protien.jpg
+++6059a70a-9cb3-4e27-8ac8-7324f704d468_Glutamine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\6059a70a-9cb3-4e27-8ac8-7324f704d468_glutamine.jpg
+++6456c42e-4a00-412b-a690-6387ac87f4da_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\6456c42e-4a00-412b-a690-6387ac87f4da_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+++696a379e-492c-4ed9-9f8b-c7d4c090ebe2_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\696a379e-492c-4ed9-9f8b-c7d4c090ebe2_caseein protien.jpg
+++6cf9fb9f-6263-4b61-a8bf-48d96cae58a0_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\6cf9fb9f-6263-4b61-a8bf-48d96cae58a0_caseein protien.jpg
+++6d8619c6-eefd-4538-95c4-29de48e22121_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\6d8619c6-eefd-4538-95c4-29de48e22121_caseein protien.jpg
+++716af60e-5563-47df-93a0-278424f20882_10-Most-Expensive-Asian-Fruits_00-Feat-Img-940x627.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\716af60e-5563-47df-93a0-278424f20882_10-most-expensive-asian-fruits_00-feat-img-940x627.jpg
+++74383778-96a4-413b-9b46-d038a1a41e02_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\74383778-96a4-413b-9b46-d038a1a41e02_caseein protien.jpg
+++77f81b06-00ca-4e5a-b876-8695803638bb_1200px-Playing_card_spade_A.svg.png
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\77f81b06-00ca-4e5a-b876-8695803638bb_1200px-playing_card_spade_a.svg.png
+++7b9840c2-d5e4-43ae-9c12-5ce2e4c534f3_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\7b9840c2-d5e4-43ae-9c12-5ce2e4c534f3_caseein protien.jpg
+++7c8be7dc-f88a-4ee7-b58d-fcde5199eda5_Bananas-5c6a36a346e0fb0001f0e4a3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\7c8be7dc-f88a-4ee7-b58d-fcde5199eda5_bananas-5c6a36a346e0fb0001f0e4a3.jpg
+++7decd991-03c9-4b37-9dfc-1f847f615825_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\7decd991-03c9-4b37-9dfc-1f847f615825_caseein protien.jpg
+++83305818-d790-438e-8df6-61be99242099_210629105710-best-windows-laptop-dell-xps-13-rear-2.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\83305818-d790-438e-8df6-61be99242099_210629105710-best-windows-laptop-dell-xps-13-rear-2.jpg
+++84765b25-2272-4267-bd35-535477edb6ac_Malto Dextrin.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\84765b25-2272-4267-bd35-535477edb6ac_malto dextrin.jpg
+++86e1cdc4-a360-4f0f-aa67-d495cb1ee4ac_Bananas-5c6a36a346e0fb0001f0e4a3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\86e1cdc4-a360-4f0f-aa67-d495cb1ee4ac_bananas-5c6a36a346e0fb0001f0e4a3.jpg
+++87a064e6-4c63-4265-a6c8-a9a64112b3a5_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\87a064e6-4c63-4265-a6c8-a9a64112b3a5_caseein protien.jpg
+++8d2b86c8-ed30-4420-a88d-11a547ce6c99_milk protein.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\8d2b86c8-ed30-4420-a88d-11a547ce6c99_milk protein.jpg
+++8d2bcd0d-984d-4871-8420-a0edbf32be5c_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\8d2bcd0d-984d-4871-8420-a0edbf32be5c_4f923aff-4fd0-4d3b-8e97-8a0d62637eb3.jpg
+++8ea1bf38-833c-4038-bd68-9dc4b4991171_Malto Dextrin.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\8ea1bf38-833c-4038-bd68-9dc4b4991171_malto dextrin.jpg
+++905a830e-4eee-43ab-9de5-4520d5c32936_210629105710-best-windows-laptop-dell-xps-13-rear-2.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\905a830e-4eee-43ab-9de5-4520d5c32936_210629105710-best-windows-laptop-dell-xps-13-rear-2.jpg
+++92d46052-f55d-4b05-ac23-307253d2ddea_Egg Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\92d46052-f55d-4b05-ac23-307253d2ddea_egg protien.jpg
+++93eac8a3-c56a-4534-a805-ba8099d5cfca_Egg Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\93eac8a3-c56a-4534-a805-ba8099d5cfca_egg protien.jpg
+++9683f88d-907a-49b2-aceb-34f29c11e98a_laptop-1200x720.png
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\9683f88d-907a-49b2-aceb-34f29c11e98a_laptop-1200x720.png
+++97b7d4e3-c74b-47d6-9f6d-d4099c8a7d14_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\97b7d4e3-c74b-47d6-9f6d-d4099c8a7d14_caseein protien.jpg
+++9c8654d9-369c-4154-9e66-e5751b0390a5_Mango.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\9c8654d9-369c-4154-9e66-e5751b0390a5_mango.jpg
+++a0b1f0c7-70c7-4241-80a3-73540276a306_Bananas-5c6a36a346e0fb0001f0e4a3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\a0b1f0c7-70c7-4241-80a3-73540276a306_bananas-5c6a36a346e0fb0001f0e4a3.jpg
+++a5330c4e-d764-4e5c-af40-87e277814f3b_laptop-1200x720.png
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\a5330c4e-d764-4e5c-af40-87e277814f3b_laptop-1200x720.png
+++a5a810b5-68e2-43fb-84ad-23c0d42c4116_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\a5a810b5-68e2-43fb-84ad-23c0d42c4116_caseein protien.jpg
+++a7e79a2e-ebbe-45c3-9af1-10cd7cc543f4_1200px-Playing_card_spade_A.svg.png
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\a7e79a2e-ebbe-45c3-9af1-10cd7cc543f4_1200px-playing_card_spade_a.svg.png
+++ab9f9688-c0b4-45ab-bfe1-ada0bf0e5952_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\ab9f9688-c0b4-45ab-bfe1-ada0bf0e5952_caseein protien.jpg
+++ac2eb097-f1e8-4007-b829-5edfefd34b1b_Creatine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\ac2eb097-f1e8-4007-b829-5edfefd34b1b_creatine.jpg
+++ae6bc497-0719-4d9e-bafa-b9c0fb218277_Egg Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\ae6bc497-0719-4d9e-bafa-b9c0fb218277_egg protien.jpg
+++aeb1a9f3-608a-48be-a7d4-aa360a1c5787_Egg Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\aeb1a9f3-608a-48be-a7d4-aa360a1c5787_egg protien.jpg
+++b113958f-8c85-4b40-820a-a59c9a5e2d6e_Bananas-5c6a36a346e0fb0001f0e4a3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\b113958f-8c85-4b40-820a-a59c9a5e2d6e_bananas-5c6a36a346e0fb0001f0e4a3.jpg
+++b19abe7a-fc6f-400b-b3cc-e2f66d95b388_Egg Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\b19abe7a-fc6f-400b-b3cc-e2f66d95b388_egg protien.jpg
+++b319f79f-6e80-4048-b5c4-af28a77988d7_Bananas-5c6a36a346e0fb0001f0e4a3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\b319f79f-6e80-4048-b5c4-af28a77988d7_bananas-5c6a36a346e0fb0001f0e4a3.jpg
+++b498a123-ed3e-4920-baf5-b72db3f6c0aa_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\b498a123-ed3e-4920-baf5-b72db3f6c0aa_caseein protien.jpg
+++b77f0dca-1edb-406e-b10d-a0f1f67108b8_Creatine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\b77f0dca-1edb-406e-b10d-a0f1f67108b8_creatine.jpg
+++ba46c5da-c64a-488f-9e06-1d6311d00107_milk protein.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\ba46c5da-c64a-488f-9e06-1d6311d00107_milk protein.jpg
+++bca62713-fac1-43eb-9a7e-d40478ce0e87_Creatine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\bca62713-fac1-43eb-9a7e-d40478ce0e87_creatine.jpg
+++c674b7f6-a9e1-4b89-a91a-d8fdf38a59ca_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\c674b7f6-a9e1-4b89-a91a-d8fdf38a59ca_caseein protien.jpg
+++c8fd7b91-aa90-4a0d-9997-8a543585e783_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\c8fd7b91-aa90-4a0d-9997-8a543585e783_caseein protien.jpg
+++d532aa96-bc44-4f31-bc8b-2d5e035d41a9_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\d532aa96-bc44-4f31-bc8b-2d5e035d41a9_caseein protien.jpg
+++d693e046-ed9d-422e-a956-c52cd8a2e28f_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\d693e046-ed9d-422e-a956-c52cd8a2e28f_caseein protien.jpg
+++d79ee4c5-bbf7-4e2f-8f08-9c5a15280a3d_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\d79ee4c5-bbf7-4e2f-8f08-9c5a15280a3d_caseein protien.jpg
+++d8c2f437-c18b-4a57-bedf-cc66493bae01_Creatine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\d8c2f437-c18b-4a57-bedf-cc66493bae01_creatine.jpg
+++e363c679-47c5-410f-af12-3794cd857814_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\e363c679-47c5-410f-af12-3794cd857814_caseein protien.jpg
+++e38dd595-68f9-406e-bf17-de252a45e313_Egg Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\e38dd595-68f9-406e-bf17-de252a45e313_egg protien.jpg
+++e427d7ec-690f-402f-9e88-6db720977246_Bananas-5c6a36a346e0fb0001f0e4a3.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\e427d7ec-690f-402f-9e88-6db720977246_bananas-5c6a36a346e0fb0001f0e4a3.jpg
+++e4975417-81b8-4529-8b8d-1c4a66ac21c7_Creatine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\e4975417-81b8-4529-8b8d-1c4a66ac21c7_creatine.jpg
+++e768f5f5-cd00-402f-a14e-0de706e0b1ea_images.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\e768f5f5-cd00-402f-a14e-0de706e0b1ea_images.jpg
+++f527bef8-f2d6-40c8-ae65-3ccbf0ea2054_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\f527bef8-f2d6-40c8-ae65-3ccbf0ea2054_caseein protien.jpg
+++f99eb6d9-01c5-48eb-97c2-47e5f61b07f5_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\f99eb6d9-01c5-48eb-97c2-47e5f61b07f5_caseein protien.jpg
+++fad969d9-147d-4c9c-9afa-a306974c0749_Creatine.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\fad969d9-147d-4c9c-9afa-a306974c0749_creatine.jpg
+++fc539e27-31b0-47ff-a948-4daa1148c732_10-Most-Expensive-Asian-Fruits_00-Feat-Img-940x627.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\fc539e27-31b0-47ff-a948-4daa1148c732_10-most-expensive-asian-fruits_00-feat-img-940x627.jpg
+++fcffef29-3707-4159-913b-f24d2eb493a4_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\fcffef29-3707-4159-913b-f24d2eb493a4_caseein protien.jpg
+++fdbe90f3-f21c-4362-a48a-0eab7a5ff257_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\fdbe90f3-f21c-4362-a48a-0eab7a5ff257_caseein protien.jpg
+++fe1cec35-7c43-4453-a3d1-f3c7818b5dab_Caseein Protien.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\fe1cec35-7c43-4453-a3d1-f3c7818b5dab_caseein protien.jpg
+++LoginDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\authentication\logindto.cs
+++RegisterDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\authentication\registerdto.cs
+++TokenDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\authentication\tokendto.cs
+++UploadFileResponse.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\imgdto\uploadfileresponse.cs
+++CartReadDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\cartreaddto.cs
+++CategoryDetailsDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\categorydetailsdto.cs
+++CategoryReadDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\categoryreaddto.cs
+++CategoryWriteDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\categorywritedto.cs
+++OrderDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\orderdto.cs
+++OrderInfoWriteDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\orderinfowritedto.cs
+++ProducReadtDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\producreadtdto.cs
+++ProductCartDTOInput.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\productcartdtoinput.cs
+++ProductCartDTOOutput.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\productcartdtooutput.cs
+++ProductOrderReadDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\productorderreaddto.cs
+++ProductPagenationReadDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\productpagenationreaddto.cs
+++ProductWriteDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\productwritedto.cs
+++VendorDTO.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\dto\modelsdto\vendordto.cs
+++20220624181655_IntialOnlineStoreDB.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220624181655_intialonlinestoredb.designer.cs
+++20220624185840_UpdateTheUser.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220624185840_updatetheuser.designer.cs
+++20220624194142_UpdateTheUser_Address_Name.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220624194142_updatetheuser_address_name.designer.cs
+++20220624233329_TableFirstWave.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220624233329_tablefirstwave.designer.cs
+++20220626212726_fenish_modles.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220626212726_fenish_modles.designer.cs
+++20220628161343_tryTosolve.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220628161343_trytosolve.designer.cs
+++20220702084219_HandlToMatchFront.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220702084219_handltomatchfront.designer.cs
+++20220703230033_ProductCartTotalPrice.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220703230033_productcarttotalprice.designer.cs
+++20220704175424_updateOrder.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220704175424_updateorder.designer.cs
+++20220720084802_Remove_Deliver_Date_From_Order.Designer.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\migrations\20220720084802_remove_deliver_date_from_order.designer.cs
+++CartRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\cartrepository\cartrepository.cs
+++ICartRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\cartrepository\icartrepository.cs
+++CategoryRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\categoryrepository\categoryrepository.cs
+++ICategoryRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\categoryrepository\icategoryrepository.cs
+++IOrderRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\orderrepository\iorderrepository.cs
+++OrderRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\orderrepository\orderrepository.cs
+++IProductCartRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\productcartrepository\iproductcartrepository.cs
+++ProductCartRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\productcartrepository\productcartrepository.cs
+++IProductOrderRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\productorderrepository\iproductorderrepository.cs
+++ProductOrderRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\productorderrepository\productorderrepository.cs
+++IProductRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\productrepository\iproductrepository.cs
+++ProductRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\productrepository\productrepository.cs
+++IUserRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\userrepository\iuserrepository.cs
+++IVendorRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\vendorrepository\ivendorrepository.cs
+++VendorRepository.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\modelsrepository\vendorrepository\vendorrepository.cs
+++CartService.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\services\cart\cartservice.cs
+++ICartService.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\services\cart\icartservice.cs
+++IUserService.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\services\user\iuserservice.cs
+++UserService.cs
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\repository\services\user\userservice.cs
+++98dde015-7367-4ffe-9dae-c559c371821c_61sHtquTTwL.__AC_SX300_SY300_QL70_ML2_.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\98dde015-7367-4ffe-9dae-c559c371821c_61shtquttwl.__ac_sx300_sy300_ql70_ml2_.jpg
+++b30f4dc4-812c-46b5-b58f-35c5eb4a5051_41C7y+bwaEL._AC_SY300_SX300_.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\b30f4dc4-812c-46b5-b58f-35c5eb4a5051_41c7y+bwael._ac_sy300_sx300_.jpg
+++7e41a20e-85f2-43bd-8f8c-b959c3e4711b_416QwgkTcES.__AC_SX300_SY300_QL70_ML2_.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\7e41a20e-85f2-43bd-8f8c-b959c3e4711b_416qwgktces.__ac_sx300_sy300_ql70_ml2_.jpg
+++631f1104-5f4e-4c37-9490-89dc7ac9abd7_74175598_168475538017270_379764123651124093_n.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\631f1104-5f4e-4c37-9490-89dc7ac9abd7_74175598_168475538017270_379764123651124093_n.jpg
+++54f6e262-48ca-4901-a271-66da001912fe_106793228_169529861245171_927888518303198833_n.jpg
+i:{58799be0-7264-481e-8890-93f1f4f8cc31}:c:\joe\link_task\1st-try\onlinestoresln\onlinestoreback_api\assets\images\54f6e262-48ca-4901-a271-66da001912fe_106793228_169529861245171_927888518303198833_n.jpg
