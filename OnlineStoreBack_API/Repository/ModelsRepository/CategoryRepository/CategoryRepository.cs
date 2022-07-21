@@ -16,7 +16,6 @@ namespace OnlineStoreBack_API.Repository
 		
 		public List<Category> GetByName(string categoryName)
 		{
-
 			var res = db.Categories.Where(c => c.Name.Contains(categoryName)).ToList();
 			return res;
 		}
