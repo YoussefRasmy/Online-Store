@@ -42,7 +42,7 @@ builder.Services.AddSwaggerGen();
 
 #region Context
 
-builder.Services.AddDbContext<OnlineStoreContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("localOnlineStoreDB")));
+builder.Services.AddDbContext<OnlineStoreContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("OnlineStoreDB")));
 builder.Services.AddHttpContextAccessor();
 #endregion
 
